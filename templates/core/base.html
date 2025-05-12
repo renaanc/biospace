@@ -1,0 +1,67 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Biospace{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="site-header">
+        <div class="container header-content d-flex justify-content-between align-items-center py-3">
+          <h1 class="logo mb-0">{% trans "Biospace" %}</h1>
+
+          <nav class="site-nav">
+            <ul class="d-flex list-unstyled mb-0">
+              <li class="me-3"><a href="/">{% trans "Home" %}</a></li>
+              <li class="me-3"><a href="/about">{% trans "About" %}</a></li>
+              <li class="me-3"><a href="{% url 'articles:article_list' %}">{% trans "Articles" %}</a></li>
+              <li class="me-3"><a href="/contact">{% trans "Contact" %}</a></li>
+            </ul>
+          </nav>
+
+          <!-- Botões de idioma e tema -->
+          <div class="d-flex align-items-center gap-2">
+            <form action="{% url 'set_language' %}" method="post" class="language-toggle-form mb-0">
+              {% csrf_token %}
+              <input type="hidden" name="next" value="{{ request.get_full_path }}">
+              {% if request.LANGUAGE_CODE == 'pt-br' or request.LANGUAGE_CODE == 'pt_BR' %}
+                <input type="hidden" name="language" value="en">
+                <button type="submit" title="Switch to English" class="btn btn-outline-secondary btn-sm">
+                  <img src="{% static 'flags/united-states-flag-icon.svg' %}" alt="English" width="28" />
+                </button>
+              {% else %}
+                <input type="hidden" name="language" value="pt-br">
+                <button type="submit" title="Mudar para Português" class="btn btn-outline-secondary btn-sm">
+                  <img src="{% static 'flags/brazil-flag-icon.svg' %}" alt="Portuguese" width="28" />
+                </button>
+              {% endif %}
+            </form>
+
+            <button id="theme-toggle" class="btn btn-light btn-sm">🌙</button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        {% block content %}{% endblock %}
+      </main>
+
+      <footer class="site-footer py-4 bg-dark text-white mt-4">
+        <div class="container text-center">
+          <p>{% trans "&copy; 2025 Biospace. All rights reserved." %}</p>
+          <p>{% trans "Made with 🌌 and scientific curiosity." %}</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

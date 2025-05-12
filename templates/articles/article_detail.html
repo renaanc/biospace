@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+
+{% block title %}{{ article.title }} - Biospace{% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <!-- Título do artigo -->
+        <h1 class="display-4 mb-4">{{ article.title }}</h1>
+        
+        <!-- Data de publicação -->
+        <p class="text-muted mb-4">
+          <strong>{% trans "Published on" %}:</strong> {{ article.created_at|date:"d M Y" }}
+        </p>
+
+        <!-- Imagem do artigo -->
+        {% if article.image %}
+          <img src="{{ article.image.url }}" alt="{{ article.title }}"
+               class="img-fluid rounded mb-4">
+        {% endif %}
+
+        <!-- Conteúdo do artigo -->
+        <div class="article-content mb-4">
+          {{ article.content|linebreaks }}
+        </div>
+
+        <!-- Fonte -->
+        <p>
+          <strong>{% trans "Source" %}:</strong>
+          <a href="{{ article.source }}" target="_blank" class="text-primary">{{ article.source }}</a>
+        </p>
+
+        <!-- Tags -->
+        <div class="tags mt-4">
+          <span class="badge bg-secondary">#astrobiology</span>
+          <span class="badge bg-secondary">#biospace</span>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% load static %} 
+{% load i18n %}
+<!DOCTYPE html> 
+<!-- Carregando o módulo de traduções -->
+<html lang="us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Biospace{% endblock %}</title>
+    <!-- Traduzindo o título -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <h1 class="logo">{% trans "Biospace" %}</h1>
+        <!-- Traduzindo o nome Biospace -->
+        <nav class="site-nav">
+          <ul>
+            <li><a href="/">{% trans "Início" %}</a></li>
+            <li><a href="/sobre/">{% trans "Sobre" %}</a></li>
+            <li><a href="/artigos/">{% trans "Artigos" %}</a></li>
+            <li><a href="/contato/">{% trans "Contato" %}</a></li>
+          </ul>
+        </nav>
+            <!-- 🔄 Formulário de troca de idioma -->
+            <form action="{% url 'set_language' %}" method="post">
+              {% csrf_token %}
+              <select name="language" onchange="this.form.submit()">
+                <option value="pt-br" {% if LANGUAGE_CODE == 'pt-br' %}selected{% endif %}>🇧🇷 PT</option>
+                <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>🇺🇸 EN</option>
+              </select>
+            </form>            
+        <button id="theme-toggle" class="theme-btn">🌙</button>
+      </div>
+    </header>
+
+    <main>
+      {% block content %}
+
+      <section class="hero">
+        <h2>
+          {% trans "Bem-vindo ao" %} <span class="highlight">Biospace</span>
+        </h2>
+        <!-- Traduzindo título -->
+        <p>
+          {% trans "Explorando os limites da vida no universo e os extremos da
+          Terra." %}
+        </p>
+        <!-- Traduzindo texto -->
+      </section>
+
+      <section class="features">
+        <div class="feature">
+          <h3>{% trans "Astrobiologia" %}</h3>
+          <!-- Traduzindo os títulos das features -->
+          <p>
+            {% trans "Estude como a vida pode surgir e sobreviver fora da
+            Terra." %}
+          </p>
+        </div>
+        <div class="feature">
+          <h3>{% trans "Extremófilos" %}</h3>
+          <p>
+            {% trans "Conheça os organismos que vivem em condições extremas." %}
+          </p>
+        </div>
+        <div class="feature">
+          <h3>{% trans "Análogos Terrestres" %}</h3>
+          <p>
+            {% trans "Ambientes na Terra que nos ajudam a entender mundos
+            distantes." %}
+          </p>
+        </div>
+      </section>
+
+      <section class="hero" style="background: #f0f8ff">
+        <h2>{% trans "Comece sua jornada cósmica" %}</h2>
+        <!-- Traduzindo o título -->
+        <p>
+          {% trans "Leia nossos artigos, descubra novos mundos e compartilhe
+          conhecimento." %}
+        </p>
+        <a href="/artigos/" class="cta-button">{% trans "Ver artigos" %}</a>
+        <!-- Traduzindo o link -->
+      </section>
+
+      {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>{% trans "&copy; 2025 Biospace. Todos os direitos reservados." %}</p>
+        <p>{% trans "Feito com 🌌 e curiosidade científica." %}</p>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

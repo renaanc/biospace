@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load i18n %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSRF Test</title>
+</head>
+<body>
+  <h1>CSRF Test Page</h1>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+
+{% block title %}Biospace - {% trans "Início" %}{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h2>{% trans "Welcome to" %} <span class="highlight">Biospace</span></h2>
+  <p>{% trans "Exploring the limits of life in the universe and the extremes of Earth." %}</p>
+</section>
+
+<section class="features">
+  <div class="feature">
+    <h3>{% trans "Astrobiology" %}</h3>
+    <p>{% trans "Study how life can arise and survive outside of Earth." %}</p>
+  </div>
+  <div class="feature">
+    <h3>{% trans "Extremophiles" %}</h3>
+    <p>{% trans "Learn about organisms that live in extreme conditions." %}</p>
+  </div>
+  <div class="feature">
+    <h3>{% trans "Earth Analogs" %}</h3>
+    <p>{% trans "Environments on Earth that help us understand distant worlds." %}</p>
+  </div>
+</section>
+
+<section class="hero" style="background: #f0f8ff">
+  <h2>{% trans "Start your cosmic journey" %}</h2>
+  <p>{% trans "Read our articles, discover new worlds and share knowledge." %}</p>
+  <a href="/articles" class="cta-button">{% trans "View articles" %}</a>
+</section>
+{% endblock %}
