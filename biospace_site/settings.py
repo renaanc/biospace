@@ -32,7 +32,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True #config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['https://biospace-u6a4.onrender.com']
+ALLOWED_HOSTS = ['biospace-u6a4.onrender.com']
 
 
 
