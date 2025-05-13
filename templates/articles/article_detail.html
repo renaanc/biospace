@@ -15,10 +15,10 @@
         <p class="text-muted mb-4">
           <strong>{% trans "Published on" %}:</strong> {{ article.created_at|date:"d M Y" }}
         </p>
-
+        
 {% if article.image %}
   <figure class="mb-4">
-    <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-fluid rounded">
+    <img src="{{ article.image }}" alt="{{ article.title }}" class="img-fluid rounded">
     {% if article.image_caption %}
       <figcaption class="text-muted small mt-2">{{ article.image_caption }}</figcaption>
     {% endif %}
