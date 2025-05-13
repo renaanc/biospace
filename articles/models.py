@@ -15,6 +15,7 @@ class Article(TranslatableModel):
         title=models.CharField(max_length=200),
         content = RichTextField(),
         summary=models.TextField(blank=True),
+        image_caption = models.CharField(max_length=255, blank=True, verbose_name="Legenda da imagem"),
     )
 
     def __str__(self):

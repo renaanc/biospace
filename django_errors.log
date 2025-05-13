@@ -1387,3 +1387,368 @@ Traceback (most recent call last):
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: core/earth_analogs.html
 ERROR 2025-05-13 01:46:46,732 basehttp "GET /pt-br/earth-analogs/ HTTP/1.1" 500 87689
+ERROR 2025-05-13 19:41:09,187 log Internal Server Error: /en/admin/articles/article/
+Traceback (most recent call last):
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column articles_article.image_caption does not exist
+LINE 1: ...cles_article"."slug", "articles_article"."image", "articles_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\BIOSPACE\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 2163, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "E:\BIOSPACE\env\Lib\site-packages\parler\managers.py", line 42, in _fetch_all
+    super()._fetch_all()
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column articles_article.image_caption does not exist
+LINE 1: ...cles_article"."slug", "articles_article"."image", "articles_...
+                                                             ^
+
+ERROR 2025-05-13 19:41:09,225 basehttp "GET /en/admin/articles/article/ HTTP/1.1" 500 177253
+ERROR 2025-05-13 19:41:17,203 log Internal Server Error: /en/admin/articles/article/2/change/
+Traceback (most recent call last):
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column articles_article.image_caption does not exist
+LINE 1: ...cles_article"."slug", "articles_article"."image", "articles_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\BIOSPACE\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 1863, in _changeform_view
+    obj = self.get_object(request, unquote(object_id), to_field)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\parler\admin.py", line 294, in get_object
+    obj = super().get_object(request, object_id, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 897, in get_object
+    return queryset.get(**{field.name: object_id})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "E:\BIOSPACE\env\Lib\site-packages\parler\managers.py", line 42, in _fetch_all
+    super()._fetch_all()
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column articles_article.image_caption does not exist
+LINE 1: ...cles_article"."slug", "articles_article"."image", "articles_...
+                                                             ^
+
+ERROR 2025-05-13 19:41:17,235 basehttp "GET /en/admin/articles/article/2/change/ HTTP/1.1" 500 199448
+ERROR 2025-05-13 19:41:44,040 log Internal Server Error: /en/admin/articles/article/2/change/
+Traceback (most recent call last):
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column articles_article.image_caption does not exist
+LINE 1: ...cles_article"."slug", "articles_article"."image", "articles_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\BIOSPACE\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 1863, in _changeform_view
+    obj = self.get_object(request, unquote(object_id), to_field)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\parler\admin.py", line 294, in get_object
+    obj = super().get_object(request, object_id, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 897, in get_object
+    return queryset.get(**{field.name: object_id})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "E:\BIOSPACE\env\Lib\site-packages\parler\managers.py", line 42, in _fetch_all
+    super()._fetch_all()
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column articles_article.image_caption does not exist
+LINE 1: ...cles_article"."slug", "articles_article"."image", "articles_...
+                                                             ^
+
+ERROR 2025-05-13 19:41:44,053 basehttp "GET /en/admin/articles/article/2/change/ HTTP/1.1" 500 199585
+ERROR 2025-05-13 19:41:48,449 log Internal Server Error: /en/admin/articles/article/2/change/
+Traceback (most recent call last):
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column articles_article.image_caption does not exist
+LINE 1: ...cles_article"."slug", "articles_article"."image", "articles_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\BIOSPACE\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 1863, in _changeform_view
+    obj = self.get_object(request, unquote(object_id), to_field)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\parler\admin.py", line 294, in get_object
+    obj = super().get_object(request, object_id, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\contrib\admin\options.py", line 897, in get_object
+    return queryset.get(**{field.name: object_id})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "E:\BIOSPACE\env\Lib\site-packages\parler\managers.py", line 42, in _fetch_all
+    super()._fetch_all()
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\BIOSPACE\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column articles_article.image_caption does not exist
+LINE 1: ...cles_article"."slug", "articles_article"."image", "articles_...
+                                                             ^
+
+ERROR 2025-05-13 19:41:48,465 basehttp "GET /en/admin/articles/article/2/change/ HTTP/1.1" 500 199448

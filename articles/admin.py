@@ -4,6 +4,6 @@ from .models import Article
 
 @admin.register(Article)
 class ArticleAdmin(TranslatableAdmin):
-    list_display = ('title', 'slug', 'created_at')
+    list_display = ('title', 'slug', 'created_at', 'image_caption')
     search_fields = ('translations__title', 'translations__content')
     ordering = ('-created_at',)
