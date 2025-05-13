@@ -1,5 +1,7 @@
 from django.db import models
 from parler.models import TranslatableModel, TranslatedFields
+from ckeditor.fields import RichTextField
+
 
 class Article(TranslatableModel):
     slug = models.SlugField(max_length=50, unique=True)
@@ -11,7 +13,7 @@ class Article(TranslatableModel):
 
     translations = TranslatedFields(
         title=models.CharField(max_length=200),
-        content=models.TextField(),
+        content = RichTextField(),
         summary=models.TextField(blank=True),
     )
 

@@ -7,6 +7,7 @@
   <div class="container py-5">
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
+        
         <!-- Título do artigo -->
         <h1 class="display-4 mb-4">{{ article.title }}</h1>
         
@@ -23,7 +24,7 @@
 
         <!-- Conteúdo do artigo -->
         <div class="article-content mb-4">
-          {{ article.content|linebreaks }}
+          {{ article.content|safe  }}
         </div>
 
         <!-- Fonte -->

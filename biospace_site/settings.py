@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'articles',
     'parler',
     'compressor',
-    'whitenoise.runserver_nostatic',    
+    'whitenoise.runserver_nostatic',
+    'ckeditor',
+    'ckeditor_uploader',  
 ]
 
 MIDDLEWARE = [
@@ -184,6 +186,28 @@ USE_TZ = True
 TIME_ZONE = 'UTC'
 
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Format', 'Font', 'FontSize'],
+            ['Bold', 'Italic', 'Underline'],
+            ['TextColor', 'BGColor'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['NumberedList', 'BulletedList'],
+            ['Outdent', 'Indent'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source'],
+        ],
+        'width': 'auto',
+        'height': 400,
+        'extraPlugins': ','.join([
+            'font',  # plugin que habilita Font e FontSize
+        ]),
+    }
+}
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
@@ -194,6 +218,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # usado no collectstatic
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
