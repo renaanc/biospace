@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Astrobiology" %} - Biospace{% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="content-text">
+        <!-- Título -->
+        <h1 class="display-4 mb-4">{% trans "Astrobiology" %}</h1>
+
+        <!-- Imagem ilustrativa -->
+        <img src="https://i.imgur.com/qgVe5Y3.jpeg" alt="{% trans 'Astrobiology' %}" class="img-fluid rounded mb-4">
+
+        <!-- Conteúdo principal -->
+        <div class="article-content mb-4">
+          <p>{% trans "Astrobiology is the study of life beyond Earth—how it might begin, survive, and be detected elsewhere in the universe. Scientists in this field ask big questions: Could life exist on Mars, Europa, or other distant worlds? What conditions are needed for life to emerge? Astrobiology combines biology, astronomy, chemistry, and geology to explore these questions. Even though we haven’t found alien life yet, studying astrobiology helps us understand the origin of life on Earth and prepares us for future discoveries beyond our planet." %}</p>
+
+          <p>{% trans "One of the key goals in astrobiology is to identify “biosignatures” — chemical or physical signs that life might be present. This includes molecules like methane or oxygen, or patterns in rock formations that suggest past microbial activity. Space missions such as those to Mars, or the upcoming missions to Europa and Titan, are designed to search for these clues." %}</p>
+
+         <p>{% trans "Astrobiology also inspires deep philosophical questions: Are we alone in the universe? If we discover alien life, even in microbial form, how would that change our perspective about ourselves and our place in the cosmos? It's a science that pushes boundaries and invites everyone to wonder." %}</p>
+        </div>
+
+        <!-- Fonte (opcional) 
+        <p>
+          <strong>{% trans "Learn more" %}:</strong>
+          <a href="https://en.wikipedia.org/wiki/Astrobiology" target="_blank" class="text-primary">Wikipedia - Astrobiology</a>
+        </p> -->
+
+        <!-- Tags -->
+        <div class="tags mt-4">
+          <span class="badge bg-secondary">#astrobiology</span>
+          <span class="badge bg-secondary">#biospace</span>
+          <span class="badge bg-secondary">#lifeintheuiverse</span>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -11,19 +11,18 @@
 
 <section class="features">
   <div class="feature">
-    <h3>{% trans "Astrobiology" %}</h3>
+    <h3><a href="{% url 'astrobiology' %}">{% trans "Astrobiology" %}</a></h3>
     <p>{% trans "Study how life can arise and survive outside of Earth." %}</p>
   </div>
   <div class="feature">
-    <h3>{% trans "Extremophiles" %}</h3>
+    <h3><a href="{% url 'extremophiles' %}">{% trans "Extremophiles" %}</a></h3>
     <p>{% trans "Learn about organisms that live in extreme conditions." %}</p>
   </div>
   <div class="feature">
-    <h3>{% trans "Earth Analogs" %}</h3>
+    <h3><a href="{% url 'earth_analogs' %}">{% trans "Earth Analogs" %}</a></h3>
     <p>{% trans "Environments on Earth that help us understand distant worlds." %}</p>
   </div>
 </section>
-
 <section class="hero" style="background: #f0f8ff">
   <h2>{% trans "Start your cosmic journey" %}</h2>
   <p>{% trans "Read our articles, discover new worlds and share knowledge." %}</p>

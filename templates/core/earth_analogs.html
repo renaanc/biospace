@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Earth Analogs" %} - Biospace{% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="content-text">
+        <!-- Título -->
+        <h1 class="display-4 mb-4">{% trans "Earth Analogs" %}</h1>
+
+        <!-- Imagem ilustrativa -->
+        <img src="https://i.imgur.com/DT6GJPk.jpeg" alt="{% trans 'xxxxx' %}" class="img-fluid rounded mb-4">
+
+        <!-- Conteúdo principal -->
+        <div class="article-content mb-4">
+          <p>{% trans "Earth analogs are places on our planet that resemble the conditions we expect to find on other worlds. Think of the Atacama Desert in Chile—one of the driest places on Earth—or the icy, hidden lakes beneath Antarctica. Scientists study these environments as stand-ins for Mars, Europa, or even exoplanets far away. These analog sites let researchers test equipment, theories, and even ideas about alien life, all without leaving Earth. They’re like nature’s own space laboratories." %}</p>
+
+          <p>{% trans "For example, in the dry valleys of Antarctica, microbial life survives in ice and rock, similar to what we might expect on Mars. The acidic rivers of Spain’s Río Tinto mimic the chemical makeup of Martian soil. Each of these places offers insights into how life might endure in alien landscapes." %}</p>
+
+         <p>{% trans "Earth analogs are also used to train astronauts and test space technologies in realistic, harsh conditions. They bridge the gap between theory and exploration, offering hands-on experience for scientists and engineers before we venture farther into space." %}</p>
+        </div>
+
+        <!-- Fonte (opcional) 
+        <p>
+          <strong>{% trans "Learn more" %}:</strong>
+          <a href="https://en.wikipedia.org/wiki/Astrobiology" target="_blank" class="text-primary">Wikipedia - Astrobiology</a>
+        </p> -->
+
+        <!-- Tags -->
+        <div class="tags mt-4">
+          <span class="badge bg-secondary">#astrobiology</span>
+          <span class="badge bg-secondary">#biospace</span>
+          <span class="badge bg-secondary">#lifeintheuiverse</span>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

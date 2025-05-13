@@ -12,3 +12,21 @@ def about(request):
 # Exemplo de view para a página de contato
 def contact(request):
     return render(request, 'core/contact.html')
+
+def astrobiology(request):
+
+    return render(request, 'core/astrobiology.html', {
+    'title': 'Astrobiology',
+})
+
+
+
+def extremophiles(request):
+    return render(request, 'core/extremophiles.html', {
+        'title': 'Extremophiles',
+    })
+
+def earth_analogs(request):
+    return render(request, 'core/earth_analogs.html', {
+        'title': 'Earth Analogs',
+    })

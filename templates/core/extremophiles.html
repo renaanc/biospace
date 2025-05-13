@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Extremophiles" %} - Biospace{% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="content-text">
+        <!-- Título -->
+        <h1 class="display-4 mb-4">{% trans "Extremophiles" %}</h1>
+
+        <!-- Imagem ilustrativa -->
+        <img src="https://i.imgur.com/e9enLiy.jpeg" alt="{% trans 'Astrobiology' %}" class="img-fluid rounded mb-4">
+
+        <!-- Conteúdo principal -->
+        <div class="article-content mb-4">
+          <p>{% trans "Extremophiles are organisms that thrive in places once thought to be uninhabitable—like boiling hot springs, deep-sea vents, or extremely salty lakes. These resilient life forms help us rethink what life really needs to survive. Because extremophiles live in such extreme environments on Earth, they are key to astrobiology: if life can exist in these conditions here, maybe it can exist in harsh environments on other planets too. Studying them gives us clues about how life might adapt elsewhere in the cosmos." %}</p>
+
+          <p>{% trans "Some extremophiles can survive radiation levels that would kill humans, or go dormant for decades in dry deserts, only to reactivate when water becomes available. Others live in complete darkness, using chemicals instead of sunlight to fuel their survival. These adaptations show just how flexible and creative life can be." %}</p>
+
+         <p>{% trans "By understanding extremophiles, scientists are expanding the “habitable zone” — the range of conditions where life could exist. This makes us more open-minded as we search for life in environments that once seemed impossible, such as beneath the ice of Europa or in the acidic clouds of Venus." %}</p>
+        </div>
+
+        <!-- Fonte (opcional) 
+        <p>
+          <strong>{% trans "Learn more" %}:</strong>
+          <a href="https://en.wikipedia.org/wiki/Astrobiology" target="_blank" class="text-primary">Wikipedia - Astrobiology</a>
+        </p> -->
+
+        <!-- Tags -->
+        <div class="tags mt-4">
+          <span class="badge bg-secondary">#astrobiology</span>
+          <span class="badge bg-secondary">#biospace</span>
+          <span class="badge bg-secondary">#lifeintheuiverse</span>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
