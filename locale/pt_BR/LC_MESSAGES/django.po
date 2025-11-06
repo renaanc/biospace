@@ -1311,7 +1311,7 @@ msgstr "Artigos"
 
 #: .\templates\articles\article_list.html:22
 msgid "Read more"
-msgstr "Leia Mais"
+msgstr "Leia mais"
 
 #: .\templates\articles\article_list.html:27
 msgid "No articles available."
