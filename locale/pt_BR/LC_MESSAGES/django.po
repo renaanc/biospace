@@ -1295,11 +1295,11 @@ msgstr ""
 
 #: .\templates\articles\article_detail.html:16
 msgid "Published on"
-msgstr ""
+msgstr "Publicado em"
 
 #: .\templates\articles\article_detail.html:36
 msgid "Source"
-msgstr ""
+msgstr "Fonte"
 
 #: .\templates\articles\article_list.html:5
 msgid "Articles - Biospace"
@@ -1315,7 +1315,7 @@ msgstr "Leia Mais"
 
 #: .\templates\articles\article_list.html:27
 msgid "No articles available."
-msgstr ""
+msgstr "Sem artigos disponíveis"
 
 #: .\templates\core\about.html:4
 msgid "About - Biospace"
