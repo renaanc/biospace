@@ -13,56 +13,53 @@
   <body>
 <header class="site-header bg-dark text-light py-3">
   <div class="container d-flex justify-content-between align-items-center">
+
     <!-- Logo + título -->
     <div class="d-flex align-items-center gap-2">
-      <!-- Logo (pode trocar o caminho da imagem depois) -->
+      <!-- (Troque a imagem depois) -->
       <img src="{% static 'images/logo-placeholder.png' %}" alt="Biospace logo" height="40">
 
-      <!-- Título clicável -->
+      <!-- Título clicável que leva pra home -->
       <h1 class="m-0 fs-4">
-        <a href="{% url 'core:home.html' %}" class="text-decoration-none text-light fw-bold">
+        <a href="{% url 'core:home' %}" class="text-decoration-none text-light fw-bold">
           {% trans "Biospace" %}
         </a>
       </h1>
     </div>
 
-    <!-- Aqui você pode deixar o seletor de idioma, modo escuro etc -->
-    <div>
-      {% block header_extras %}{% endblock %}
-    </div>
+    <!-- Navegação -->
+    <nav class="d-flex align-items-center">
+      <ul class="d-flex list-unstyled mb-0 me-3">
+        <li class="me-3"><a href="/" class="text-light text-decoration-none">{% trans "Home" %}</a></li>
+        <li class="me-3"><a href="/about" class="text-light text-decoration-none">{% trans "About" %}</a></li>
+        <li class="me-3"><a href="{% url 'articles:article_list' %}" class="text-light text-decoration-none">{% trans "Articles" %}</a></li>
+        <li class="me-3"><a href="/contact" class="text-light text-decoration-none">{% trans "Contact" %}</a></li>
+      </ul>
+
+      <!-- Botões de idioma e tema -->
+      <div class="d-flex align-items-center gap-2">
+        <form action="{% url 'set_language' %}" method="post" class="language-toggle-form mb-0">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+          {% if request.LANGUAGE_CODE == 'pt-br' or request.LANGUAGE_CODE == 'pt_BR' %}
+            <input type="hidden" name="language" value="en">
+            <button type="submit" title="Switch to English" class="btn btn-outline-secondary btn-sm">
+              <img src="{% static 'flags/united-states-flag-icon.svg' %}" alt="English" width="28" />
+            </button>
+          {% else %}
+            <input type="hidden" name="language" value="pt-br">
+            <button type="submit" title="Mudar para Português" class="btn btn-outline-secondary btn-sm">
+              <img src="{% static 'flags/brazil-flag-icon.svg' %}" alt="Portuguese" width="28" />
+            </button>
+          {% endif %}
+        </form>
+
+        <button id="theme-toggle" class="btn btn-light btn-sm">🌙</button>
+      </div>
+    </nav>
   </div>
 </header>
-          <nav class="site-nav">
-            <ul class="d-flex list-unstyled mb-0">
-              <li class="me-3"><a href="/">{% trans "Home" %}</a></li>
-              <li class="me-3"><a href="/about">{% trans "About" %}</a></li>
-              <li class="me-3"><a href="{% url 'articles:article_list' %}">{% trans "Articles" %}</a></li>
-              <li class="me-3"><a href="/contact">{% trans "Contact" %}</a></li>
-            </ul>
-          </nav>
 
-          <!-- Botões de idioma e tema -->
-          <div class="d-flex align-items-center gap-2">
-            <form action="{% url 'set_language' %}" method="post" class="language-toggle-form mb-0">
-              {% csrf_token %}
-              <input type="hidden" name="next" value="{{ request.get_full_path }}">
-              {% if request.LANGUAGE_CODE == 'pt-br' or request.LANGUAGE_CODE == 'pt_BR' %}
-                <input type="hidden" name="language" value="en">
-                <button type="submit" title="Switch to English" class="btn btn-outline-secondary btn-sm">
-                  <img src="{% static 'flags/united-states-flag-icon.svg' %}" alt="English" width="28" />
-                </button>
-              {% else %}
-                <input type="hidden" name="language" value="pt-br">
-                <button type="submit" title="Mudar para Português" class="btn btn-outline-secondary btn-sm">
-                  <img src="{% static 'flags/brazil-flag-icon.svg' %}" alt="Portuguese" width="28" />
-                </button>
-              {% endif %}
-            </form>
-
-            <button id="theme-toggle" class="btn btn-light btn-sm">🌙</button>
-          </div>
-        </div>
-      </header>
 
       <main>
         {% block content %}{% endblock %}
