@@ -11,11 +11,27 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
   <body>
-    <div class="wrapper">
-      <header class="site-header">
-        <div class="container header-content d-flex justify-content-between align-items-center py-3">
-          <h1 class="logo mb-0">{% trans "Biospace" %}</h1>
+<header class="site-header bg-dark text-light py-3">
+  <div class="container d-flex justify-content-between align-items-center">
+    <!-- Logo + título -->
+    <div class="d-flex align-items-center gap-2">
+      <!-- Logo (pode trocar o caminho da imagem depois) -->
+      <img src="{% static 'images/logo-placeholder.png' %}" alt="Biospace logo" height="40">
 
+      <!-- Título clicável -->
+      <h1 class="m-0 fs-4">
+        <a href="{% url 'core:home' %}" class="text-decoration-none text-light fw-bold">
+          {% trans "Biospace" %}
+        </a>
+      </h1>
+    </div>
+
+    <!-- Aqui você pode deixar o seletor de idioma, modo escuro etc -->
+    <div>
+      {% block header_extras %}{% endblock %}
+    </div>
+  </div>
+</header>
           <nav class="site-nav">
             <ul class="d-flex list-unstyled mb-0">
               <li class="me-3"><a href="/">{% trans "Home" %}</a></li>
