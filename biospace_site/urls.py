@@ -26,7 +26,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
-    path('', include('core.urls', namespace='core')),
+    path('', include('core.urls')),
     path('articles/', include(('articles.urls', 'articles'), namespace='articles')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 
