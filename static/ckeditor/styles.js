@@ -5,4 +5,7 @@ CKEDITOR.stylesSet.add('default', [
     // Itálico
     { name: 'Itálico', element: 'em' },
 
+    //Paragrafo
+    { name: 'Parágrafo Recuado', element: 'p', attributes: { 'class': 'paragrafo-recuado' } },
+
 ]);

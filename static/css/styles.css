@@ -354,3 +354,7 @@ main {
 .article-content em {
     font-style: italic !important;
 }
+
+.paragrafo-recuado {
+  text-indent: 2em !important;
+}
