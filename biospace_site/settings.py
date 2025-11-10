@@ -191,7 +191,7 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
         'toolbar_Custom': [
-            ['Format', 'Font', 'FontSize'],
+            ['Styles', 'Format', 'Font', 'FontSize'],
             ['Bold', 'Italic', 'Underline'],
             ['TextColor', 'BGColor'],
             ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
@@ -202,6 +202,9 @@ CKEDITOR_CONFIGS = {
         ],
         'width': 'auto',
         'height': 400,
+        'stylesSet': [
+            { 'name': 'Parágrafo Recuado', 'element': 'p', 'attributes': { 'style': 'text-indent: 2em;' } },
+        ],
         'allowedContent': True,
         'extraAllowedContent': '*[*]{*}(*)',
         'extraPlugins': ','.join([
