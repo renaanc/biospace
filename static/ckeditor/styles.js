@@ -6,6 +6,6 @@ CKEDITOR.stylesSet.add('default', [
     { name: 'Itálico', element: 'em' },
 
     //Paragrafo
-    { name: 'Parágrafo Recuado', element: 'p', attributes: { 'class': 'paragrafo-recuado' } },
+    { name: 'Parágrafo Recuado', element: 'p', attributes: { 'style': 'text-indent:2em;'  } },
 
 ]);
