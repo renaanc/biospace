@@ -5,10 +5,4 @@ CKEDITOR.stylesSet.add('default', [
     // Itálico
     { name: 'Itálico', element: 'em' },
 
-    // Recuo de Parágrafo
-    { 
-        name: 'Parágrafo com Recuo',
-        element: 'p',
-        attributes: { 'class': 'recuo' }
-    }
 ]);
