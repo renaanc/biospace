@@ -118,8 +118,8 @@ main {
   padding: 20px var(--text-padding);
   position: sticky;
   top: 0;
-  width: 100vw;
-  margin-left: calc(-1 * var(--text-padding));
+  width: 100%;
+  margin-left: 0;
   z-index: 10;
 }
 
@@ -195,8 +195,8 @@ main {
   padding: 40px var(--text-padding);
   border-top: 1px solid var(--border-color);
   margin-top: auto;
-  width: 100vw;
-  margin-left: calc(-1 * var(--text-padding));
+  width: 100%;
+  margin-left: 0;
 }
 
 /* ==== RESET DE MARGEM ESPECÍFICO ==== */
