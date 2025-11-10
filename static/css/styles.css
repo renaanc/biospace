@@ -346,3 +346,11 @@ main {
   margin-right: 15px;
   border-radius: 8px;
 }
+
+.article-content strong {
+    font-weight: bold !important;
+}
+
+.article-content em {
+    font-style: italic !important;
+}
