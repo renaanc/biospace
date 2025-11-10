@@ -202,9 +202,7 @@ CKEDITOR_CONFIGS = {
         ],
         'width': 'auto',
         'height': 400,
-        'stylesSet': [
-            { 'name': 'Parágrafo Recuado', 'element': 'p', 'attributes': { 'style': 'text-indent: 2em;' } },
-        ],
+        'stylesSet': 'default:/static/ckeditor/styles.js',
         'allowedContent': True,
         'extraAllowedContent': '*[*]{*}(*)',
         'extraPlugins': ','.join([
