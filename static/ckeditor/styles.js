@@ -12,3 +12,8 @@ CKEDITOR.stylesSet.add('default', [
         attributes: { 'class': 'recuo' }
     }
 ]);
+
+
+CKEDITOR.stylesSet.add('default', [
+    { name: 'TESTE APARECE?', element: 'strong' }
+]);
