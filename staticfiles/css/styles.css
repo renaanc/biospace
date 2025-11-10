@@ -199,13 +199,6 @@ main {
   margin-left: 0;
 }
 
-/* ==== RESET DE MARGEM ESPECÍFICO ==== */
-.content-text,
-.content-text *:not(button):not(a):not(input):not(textarea) {
-  margin: initial !important;
-  padding: initial !important;
-  box-sizing: border-box !important;
-}
 
 /* ==== REGRAS IMUTÁVEIS PARA TEXTO ==== */
 .content-text {
