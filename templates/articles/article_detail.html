@@ -26,23 +26,23 @@
 {% endif %}
 
 
-        <!-- Conteúdo do artigo -->
-        <div class="article-content mb-4">
-          {{ article.content|safe  }}
-        </div>
+<!-- Conteúdo do artigo -->
+<div class="article-content mb-4">
+  {{ article.content|safe  }}
+</div>
 
-        <!-- Fonte -->
-        <p>
-          <strong>{% trans "Source" %}:</strong>
-          <a href="{{ article.source }}" target="_blank" class="text-primary">{{ article.source }}</a>
-        </p>
+<!-- Fonte -->
+<p>
+  <strong>{% trans "Source" %}:</strong>
+  <a href="{{ article.source }}" target="_blank" class="text-primary">{{ article.source }}</a>
+</p>
 
-        <!-- Tags -->
-        <div class="tags mt-4">
-          <span class="badge bg-secondary">#astrobiology</span>
-          <span class="badge bg-secondary">#biospace</span>
-        </div>
+<!-- Tags -->
+<div class="tags mt-4">
+  <span class="badge bg-secondary">#astrobiology</span>
+  <span class="badge bg-secondary">#biospace</span>
+</div>
+   </div>
       </div>
-    </div>
-  </div>
+        </div>
 {% endblock %}
