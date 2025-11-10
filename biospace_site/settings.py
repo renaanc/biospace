@@ -202,6 +202,8 @@ CKEDITOR_CONFIGS = {
         ],
         'width': 'auto',
         'height': 400,
+        'allowedContent': True,
+        'extraAllowedContent': '*[*]{*}(*)',
         'extraPlugins': ','.join([
             'font',  # plugin que habilita Font e FontSize
         ]),
