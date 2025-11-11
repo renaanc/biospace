@@ -358,3 +358,37 @@ main {
 .paragrafo-recuado {
   text-indent: 2em !important;
 }
+
+.logo-title {
+  font-family: 'Exo2', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.logo-link {
+  color: var(--text-color);
+}
+
+.logo-bold {
+  font-weight: 700;
+}
+
+.logo-regular {
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Exo2-Bold';
+  src: url('font/Exo2-Bold.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Exo2-SemiBold';
+  src: url('font/Exo2-SemiBold.ttf') format('tff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
