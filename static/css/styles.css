@@ -57,7 +57,7 @@ article, aside, footer, header, nav, section {
 
 /* ==== Variáveis de Tema ==== */
 :root {
-  --bg-color: #ffffff;
+  --bg-color: #1b264d;
   --text-color: #1e1e1e;
   --accent-color: #005ea2;
   --accent-hover: #003f7f;
@@ -67,13 +67,13 @@ article, aside, footer, header, nav, section {
   --hero-gradient-end: #f4f9ff;
   --feature-bg: #1e1e1e;
   --feature-text: #f2f2f2;
-  --footer-bg: #f3f3f3;
+  --footer-bg: #000000;
   --content-max-width: 100%;
   --text-padding: clamp(10px, 3vw, 60px);
 }
 
 [data-theme="dark"] {
-  --bg-color: #121212;
+  --bg-color: #1b264d;
   --text-color: #f2f2f2;
   --accent-color: #66b2ff;
   --accent-hover: #3399ff;
@@ -83,7 +83,7 @@ article, aside, footer, header, nav, section {
   --hero-gradient-end: #2a2a2a;
   --feature-bg: #292929;
   --feature-text: #e0e0e0;
-  --footer-bg: #1a1a1a;
+  --footer-bg: #050505;
 }
 
 /* ==== Tipografia Base ==== */
