@@ -1,4 +1,10 @@
 /* ==== RESET GLOBAL SEGURO ==== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -16,10 +22,8 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
-  /* REMOVE ISSO ↓ */
-  /* font: inherit; */
+  font: inherit;
 }
-
 
 html, body {
   height: 100%;
@@ -114,7 +118,7 @@ main {
   padding: 20px var(--text-padding);
   position: sticky;
   top: 0;
-  width: 100vw;
+  width: 100%;
   margin-left: 0;
   z-index: 10;
 }
@@ -191,10 +195,17 @@ main {
   padding: 40px var(--text-padding);
   border-top: 1px solid var(--border-color);
   margin-top: auto;
-  width: 100vw;
+  width: 100%;
   margin-left: 0;
 }
 
+/* ==== RESET DE MARGEM ESPECÍFICO ==== */
+.content-text,
+.content-text *:not(button):not(a):not(input):not(textarea) {
+  margin: initial !important;
+  padding: initial !important;
+  box-sizing: border-box !important;
+}
 
 /* ==== REGRAS IMUTÁVEIS PARA TEXTO ==== */
 .content-text {
@@ -335,3 +346,49 @@ main {
   margin-right: 15px;
   border-radius: 8px;
 }
+
+.article-content strong {
+    font-weight: bold !important;
+}
+
+.article-content em {
+    font-style: italic !important;
+}
+
+.paragrafo-recuado {
+  text-indent: 2em !important;
+}
+
+.logo-title {
+  font-family: 'Exo2', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.logo-link {
+  color: var(--text-color);
+}
+
+.logo-bold {
+  font-weight: 700;
+}
+
+.logo-regular {
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Exo2-Bold';
+  src: url('font/Exo2-Bold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Exo2-SemiBold';
+  src: url('font/Exo2-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
