@@ -57,7 +57,7 @@ article, aside, footer, header, nav, section {
 
 /* ==== Variáveis de Tema ==== */
 :root {
-  --bg-color: #fefefe;
+  --bg-color: #ffffff;
   --text-color: #1e1e1e;
   --accent-color: #005ea2;
   --accent-hover: #003f7f;
@@ -114,7 +114,7 @@ main {
 .site-header {
   background-color: var(--header-bg);
   border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
   padding: 20px var(--text-padding);
   position: sticky;
   top: 0;
