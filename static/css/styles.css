@@ -158,7 +158,7 @@ main {
 
 /* Espaço entre menu e botões */
 .site-header nav .d-flex.align-items-center.gap-2 {
-  margin-left: 2rem;
+  margin-left: auto;
 }
 
 /* ==== Conteúdo Textual ==== */
