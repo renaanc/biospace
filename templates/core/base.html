@@ -17,11 +17,13 @@
   <body>
 
 <header class="site-header bg-dark text-light py-3">
+  <a href="{% url 'home' %}" class="text-decoration-none logo-link">
   <div class="container d-flex align-items-center justify-content-between">
-
-<!-- Logo + título --> <div class="d-flex align-items-center gap-2"> 
+<!-- Logo + título --> 
+ <div class="d-flex align-items-center gap-2"> 
   <!-- (Troque a imagem depois) --> 
    <img src="{% static 'images/logo-placeholder.png' %}" alt="Biospace logo" height="60" length="70">
+ </a>
 
       <!-- Tipografia personalizada futuramente -->
       <!--
@@ -31,7 +33,7 @@
         </a>
       </h1>
       -->
-    </div>
+      </div>
 
     <!-- NAV + IDIOMA + TEMA -->
     <nav class="d-flex align-items-center gap-4">
