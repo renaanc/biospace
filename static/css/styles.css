@@ -57,11 +57,11 @@ article, aside, footer, header, nav, section {
 
 /* ==== Variáveis de Tema ==== */
 :root {
-  --bg-color: #1b264d;
+  --bg-color: #ffffff;
   --text-color: #1e1e1e;
   --accent-color: #005ea2;
   --accent-hover: #003f7f;
-  --header-bg: #ffffff;
+  --header-bg: #1b264d;
   --border-color: #ddd;
   --hero-gradient-start: #eaf4ff;
   --hero-gradient-end: #f4f9ff;
@@ -73,11 +73,11 @@ article, aside, footer, header, nav, section {
 }
 
 [data-theme="dark"] {
-  --bg-color: #1b264d;
+  --bg-color: #121212;
   --text-color: #f2f2f2;
   --accent-color: #66b2ff;
   --accent-hover: #3399ff;
-  --header-bg: #1e1e1e;
+  --header-bg: #1b264d;
   --border-color: #333;
   --hero-gradient-start: #1f1f1f;
   --hero-gradient-end: #2a2a2a;
