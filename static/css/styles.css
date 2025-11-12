@@ -72,18 +72,29 @@ article, aside, footer, header, nav, section {
   --text-padding: clamp(10px, 3vw, 60px);
 }
 
-/* ==== HEADER TRANSLÚCIDO NO MODO ESCURO ==== */
-[data-theme="dark"] .site-header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  padding: 20px var(--text-padding);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(33, 37, 41, 0.75); /* translúcido */
+/* ==== TEMA ESCURO ATUALIZADO ==== */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f2f2f2;
+  --accent-color: #66b2ff;
+  --accent-hover: #3399ff;
+  --header-bg: rgba(33, 37, 41, 0.8); /* translúcido */
+  --border-color: #333;
+  --hero-gradient-start: #1f1f1f;
+  --hero-gradient-end: #2a2a2a;
+  --feature-bg: #292929;
+  --feature-text: #e0e0e0;
+  --footer-bg: #050505;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* ==== GARANTE FUNDO ESCURO GERAL ==== */
+[data-theme="dark"] body,
+[data-theme="dark"] .wrapper,
+[data-theme="dark"] main {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
 }
 
 /* ==== Tipografia Base ==== */
