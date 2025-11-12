@@ -89,6 +89,30 @@ article, aside, footer, header, nav, section {
   -webkit-backdrop-filter: blur(12px);
 }
 
+
+/* ====== MODO CLARO: COR DO TEXTO NA HEADER ====== */
+:root .site-header,
+:root .site-header a,
+:root .site-header .logo-title {
+  color: #1e1e1e !important; /* texto escuro */
+}
+
+:root .site-header a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* ====== LOGO AUTOMÁTICA CONFORME O TEMA ====== */
+.logo-img {
+  content: url("../images/logo-placeholder-dark.png"); /* padrão: modo claro */
+  height: 60px;
+  transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] .logo-img {
+  content: url("../images/logo-placeholder.png");
+}
+
+
 /* ==== GARANTE FUNDO ESCURO GERAL ==== */
 [data-theme="dark"] body,
 [data-theme="dark"] .wrapper,
