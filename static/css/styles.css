@@ -112,6 +112,43 @@ article, aside, footer, header, nav, section {
   content: url("../images/logo-placeholder.png");
 }
 
+/* Modo claro: mostra logo clara */
+:root .logo-light {
+  display: inline;
+}
+:root .logo-dark {
+  display: none;
+}
+
+/* Modo escuro: mostra logo escura */
+[data-theme="dark"] .logo-light {
+  display: none;
+}
+[data-theme="dark"] .logo-dark {
+  display: inline;
+}
+
+/* ===== HEADER – MODO CLARO ===== */
+:root .site-header,
+:root .site-header a,
+:root .site-header .logo-title {
+  color: #1e1e1e !important; /* texto escuro */
+}
+
+:root .site-header a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* ===== HEADER – MODO ESCURO ===== */
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .site-header a,
+[data-theme="dark"] .site-header .logo-title {
+  color: #ffffff !important; /* texto claro */
+}
+
+[data-theme="dark"] .site-header a:hover {
+  color: var(--accent-color) !important;
+}
 
 /* ==== GARANTE FUNDO ESCURO GERAL ==== */
 [data-theme="dark"] body,
