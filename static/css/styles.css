@@ -74,11 +74,11 @@ article, aside, footer, header, nav, section {
 
 /* ==== TEMA ESCURO ATUALIZADO ==== */
 [data-theme="dark"] {
-  --bg-color: #121212;
+  --bg-color: #0c0c0c;
   --text-color: #f2f2f2;
   --accent-color: #66b2ff;
   --accent-hover: #3399ff;
-  --header-bg: rgba(33, 37, 41, 0.8); /* translúcido */
+  --header-bg: rgba(31, 32, 32, 0.8); /* translúcido */
   --border-color: #333;
   --hero-gradient-start: #1f1f1f;
   --hero-gradient-end: #2a2a2a;
