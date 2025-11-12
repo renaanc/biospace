@@ -57,7 +57,7 @@ article, aside, footer, header, nav, section {
 
 /* ==== Variáveis de Tema ==== */
 :root {
-  --bg-color: #2b2a2a;
+  --bg-color: #f3f3f3;
   --text-color: #1e1e1e;
   --accent-color: #005ea2;
   --accent-hover: #003f7f;
@@ -91,6 +91,7 @@ body {
   font-family: 'Segoe UI Emoji', 'Segoe UI', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
   line-height: 1.6;
   min-height: 100vh;
   text-rendering: optimizeLegibility;
@@ -130,6 +131,12 @@ main {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+/* Garante que o container e o conteúdo herdem o tema */
+main, header, footer, .container {
+  background: transparent;
+  color: inherit;
 }
 
 /* ==== NAVBAR FIX ==== */
