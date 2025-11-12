@@ -276,6 +276,41 @@ main, header, footer, .container {
   color: var(--accent-hover);
 }
 
+.about-section {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 0 20px;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.about-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.about-text h3 {
+  margin-top: 40px;
+  font-size: 1.5rem;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.about-quote {
+  text-align: center;
+  margin-top: 40px;
+  font-style: italic;
+}
+
+/* ===== MODO ESCURO ===== */
+[data-theme="dark"] .about-section {
+  color: #e4e4e4;
+}
+
 /* ==== Rodapé ==== */
 .site-footer {
   background-color: var(--footer-bg);
