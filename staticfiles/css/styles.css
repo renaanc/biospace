@@ -57,33 +57,33 @@ article, aside, footer, header, nav, section {
 
 /* ==== Variáveis de Tema ==== */
 :root {
-  --bg-color: #fefefe;
+  --bg-color: #ffffff;
   --text-color: #1e1e1e;
   --accent-color: #005ea2;
   --accent-hover: #003f7f;
-  --header-bg: #ffffff;
+  --header-bg: #212529;
   --border-color: #ddd;
   --hero-gradient-start: #eaf4ff;
   --hero-gradient-end: #f4f9ff;
   --feature-bg: #1e1e1e;
   --feature-text: #f2f2f2;
-  --footer-bg: #f3f3f3;
+  --footer-bg: #000000;
   --content-max-width: 100%;
   --text-padding: clamp(10px, 3vw, 60px);
 }
 
-[data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #f2f2f2;
-  --accent-color: #66b2ff;
-  --accent-hover: #3399ff;
-  --header-bg: #1e1e1e;
-  --border-color: #333;
-  --hero-gradient-start: #1f1f1f;
-  --hero-gradient-end: #2a2a2a;
-  --feature-bg: #292929;
-  --feature-text: #e0e0e0;
-  --footer-bg: #1a1a1a;
+/* ==== HEADER TRANSLÚCIDO NO MODO ESCURO ==== */
+[data-theme="dark"] .site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 20px var(--text-padding);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(33, 37, 41, 0.75); /* translúcido */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 /* ==== Tipografia Base ==== */
@@ -112,15 +112,16 @@ main {
 
 /* ==== Cabeçalho ==== */
 .site-header {
-  background-color: var(--header-bg);
-  border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  padding: 20px var(--text-padding);
   position: sticky;
   top: 0;
   width: 100%;
-  margin-left: 0;
   z-index: 10;
+  padding: 20px var(--text-padding);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .header-content {
@@ -131,35 +132,43 @@ main {
   gap: 1rem;
 }
 
+/* ==== NAVBAR FIX ==== */
+/* Deixa logo → menu → botões organizados */
+.site-header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Links da navbar */
+.site-header nav ul {
+  display: flex;
+  gap: 2rem;
+  margin-left: auto;
+}
+
+.site-header nav a {
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.site-header nav a:hover {
+  color: var(--accent-color);
+}
+
+/* Espaço entre menu e botões */
+.site-header nav .d-flex.align-items-center.gap-2 {
+  margin-left: auto;
+}
+
 /* ==== Conteúdo Textual ==== */
 .content-text {
   max-width: var(--content-max-width);
   margin: 2rem auto;
   padding: 0 var(--text-padding);
 }
-
-.site-nav ul {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.site-nav a {
-  font-weight: 500;
-  color: var(--text-color);
-  transition: color 0.3s;
-}
-
-.site-nav a:hover {
-  color: var(--accent-color);
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--accent-color);
-}
-
-
 
 .content-text p {
   text-align: justify;
@@ -196,10 +205,9 @@ main {
   border-top: 1px solid var(--border-color);
   margin-top: auto;
   width: 100%;
-  margin-left: 0;
 }
 
-/* ==== RESET DE MARGEM ESPECÍFICO ==== */
+/* ==== Ajuste de textos ==== */
 .content-text,
 .content-text *:not(button):not(a):not(input):not(textarea) {
   margin: initial !important;
@@ -207,28 +215,11 @@ main {
   box-sizing: border-box !important;
 }
 
-/* ==== REGRAS IMUTÁVEIS PARA TEXTO ==== */
-.content-text {
-  max-width: var(--content-max-width) !important;
-  margin: 2rem auto !important;
-  padding: 0 var(--text-padding) !important;
-}
-
 .content-text p {
-  text-align: justify !important;
   margin-bottom: 1.8rem !important;
-  line-height: 1.8 !important;
-  hyphens: auto !important;
-  letter-spacing: 0.02em !important;
 }
 
-.content-text h2 {
-  font-size: 1.8rem !important;
-  margin: 3rem 0 1.5rem 0 !important;
-  border-bottom: 2px solid var(--border-color) !important;
-}
-
-/* ==== HERO SECTION ==== */
+/* ==== HERO ==== */
 .hero {
   background: linear-gradient(to right, var(--hero-gradient-start), var(--hero-gradient-end));
   padding: 4rem 2rem;
@@ -243,31 +234,13 @@ main {
   margin-bottom: 1rem;
 }
 
-.hero .highlight {
-  color: var(--accent-hover);
-}
-
 .hero p {
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto 1.5rem;
-  color: var(--text-color);
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--accent-color);
-  color: white;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: var(--accent-hover);
-}
-
-/* ==== FEATURES SECTION ==== */
+/* ==== FEATURES ==== */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -282,55 +255,21 @@ main {
   color: var(--feature-text);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-.feature h3 {
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-}
-
-.feature p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
+/* ==== Idioma ==== */
 .language-toggle-form {
   display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
-}
-
-.language-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 50%;
-  transition: transform 0.3s ease, filter 0.3s;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.language-btn:hover {
-  transform: scale(1.1);
-  filter: brightness(1.2); /* Destaca o botão ao passar o mouse */
 }
 
 .language-btn img.flag {
   width: 24px;
   height: 24px;
-  display: inline-block;
 }
 
-
-.language-btn {
-  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
-  font-size: 1.3rem;
-}
-
+/* ==== Artigos ==== */
 .article-list {
   list-style: none;
   padding: 0;
@@ -342,23 +281,12 @@ main {
   margin-bottom: 20px;
 }
 
-.article-list img {
-  margin-right: 15px;
-  border-radius: 8px;
-}
-
-.article-content strong {
-    font-weight: bold !important;
-}
-
-.article-content em {
-    font-style: italic !important;
-}
-
+/* ==== Parágrafo com recuo ==== */
 .paragrafo-recuado {
   text-indent: 2em !important;
 }
 
+/* ==== Logo ==== */
 .logo-title {
   font-family: 'Exo2', sans-serif;
   letter-spacing: 0.5px;
@@ -369,14 +297,7 @@ main {
   color: var(--text-color);
 }
 
-.logo-bold {
-  font-weight: 700;
-}
-
-.logo-regular {
-  font-weight: 400;
-}
-
+/* ==== Fontes ==== */
 @font-face {
   font-family: 'Exo2-Bold';
   src: url('font/Exo2-Bold.ttf') format('truetype');
@@ -392,4 +313,3 @@ main {
   font-style: normal;
   font-display: swap;
 }
-
