@@ -57,7 +57,7 @@ article, aside, footer, header, nav, section {
 
 /* ==== Variáveis de Tema ==== */
 :root {
-  --bg-color: #ffffff;
+  --bg-color: #2b2a2a;
   --text-color: #1e1e1e;
   --accent-color: #005ea2;
   --accent-hover: #003f7f;
