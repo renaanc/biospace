@@ -187,7 +187,7 @@ USE_TZ = True
 TIME_ZONE = 'UTC'
 
 # Configurações do Google Analytics (django-analytical)
-GOOGLE_ANALYTICS_PROPERTY_ID = 'G-XXXXXXXXXX'
+GOOGLE_ANALYTICS_PROPERTY_ID = 'G-TB1X2EN00B'
 
 CKEDITOR_CONFIGS = {
     'default': {
