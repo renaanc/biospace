@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
   <head>
+{% analytical_head_top %}
     <meta charset="UTF-8" />
     <title>{% block title %}Biospace{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +13,8 @@
 
     <!-- Seu CSS -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+{% load analytical %}
+{% analytical_head_bottom %}
   </head>
 
   <body>

@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'compressor',
     'whitenoise.runserver_nostatic',
     'ckeditor',
-    'ckeditor_uploader',  
+    'ckeditor_uploader','analytical',  
 ]
 
 MIDDLEWARE = [
@@ -186,6 +186,8 @@ LOCALE_PATHS = [BASE_DIR / 'locale']
 USE_TZ = True
 TIME_ZONE = 'UTC'
 
+# Configurações do Google Analytics (django-analytical)
+GOOGLE_ANALYTICS_PROPERTY_ID = 'G-XXXXXXXXXX'
 
 CKEDITOR_CONFIGS = {
     'default': {
