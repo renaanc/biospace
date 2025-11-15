@@ -313,3 +313,81 @@ main {
   font-style: normal;
   font-display: swap;
 }
+
+/* ==== ARTICLE LIST ==== */
+
+.articles-section {
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.articles-container {
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.article-card {
+  background: var(--feature-bg);
+  color: var(--feature-text);
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, background 0.25s, color 0.25s;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+}
+
+.article-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--feature-text);
+
+}
+
+.article-summary {
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.article-btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.25s ease;
+
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+
+  --feature-bg: #f5f5f5;
+  --feature-text: #1a1a1a;
+
+  --card-bg: #f9f9f9;
+
+  --accent: #3f7fff;
+}
+html.dark {
+  --bg: #0f1117;
+  --text: #e0e0e0;
+
+  --feature-bg: #1a1d26;
+  --feature-text: #dcdcdc;
+
+  --card-bg: #161922;
+
+  --accent: #5aa0ff;
+}
