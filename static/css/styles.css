@@ -379,7 +379,7 @@ main, header, footer, .container {
 /* Hover parecido com card interativo */
 .feature:hover {
   transform: translateY(-4px);
-  background-color: var(--feature-bg-hover, #e5e5e5);
+  background-color: var(--feature-bg-hover, #1e1e1e);
   cursor: pointer;
 }
 
