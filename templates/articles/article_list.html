@@ -4,17 +4,18 @@
 
 {% block title %}{% trans "Articles - Biospace" %}{% endblock %}
 
+
 {% block content %}
 <section class="articles-section">
-    <div class="articles-container">
+    <div class="articles-grid">
 
         {% for article in articles %}
         <article class="article-card">
 
             {% if article.thumbnail %}
-                <img src="{{ article.thumbnail }}" class="article-image" alt="{{ article.title }}">
+                <img src="{{ article.thumbnail }}" alt="{{ article.title }}" class="article-image">
             {% elif article.image %}
-                <img src="{{ article.image.url }}" class="article-image" alt="{{ article.title }}">
+                <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image">
             {% endif %}
 
             <h2 class="article-title">{{ article.title }}</h2>

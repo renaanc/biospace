@@ -80,7 +80,7 @@ article, aside, footer, header, nav, section {
   z-index: 10;
   padding: 20px var(--text-padding);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(33, 37, 41, 0.75); /* translúcido */
+  background-color: rgba(33, 37, 41, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
@@ -132,8 +132,7 @@ main {
   gap: 1rem;
 }
 
-/* ==== NAVBAR FIX ==== */
-/* Deixa logo → menu → botões organizados */
+/* ==== NAVBAR ==== */
 .site-header nav {
   display: flex;
   align-items: center;
@@ -141,7 +140,6 @@ main {
   width: 100%;
 }
 
-/* Links da navbar */
 .site-header nav ul {
   display: flex;
   gap: 2rem;
@@ -158,12 +156,11 @@ main {
   color: var(--accent-color);
 }
 
-/* Espaço entre menu e botões */
 .site-header nav .d-flex.align-items-center.gap-2 {
   margin-left: auto;
 }
 
-/* ==== Conteúdo Textual ==== */
+/* ==== Conteúdo ==== */
 .content-text {
   max-width: var(--content-max-width);
   margin: 2rem auto;
@@ -269,18 +266,6 @@ main {
   height: 24px;
 }
 
-/* ==== Artigos ==== */
-.article-list {
-  list-style: none;
-  padding: 0;
-}
-
-.article-list li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
 /* ==== Parágrafo com recuo ==== */
 .paragrafo-recuado {
   text-indent: 2em !important;
@@ -314,7 +299,9 @@ main {
   font-display: swap;
 }
 
-/* ==== ARTICLE LIST ==== */
+/* ========================================================= */
+/*                  ARTICLE LIST (ATUALIZADO)               */
+/* ========================================================= */
 
 .articles-section {
   padding: 3rem 1rem;
@@ -324,44 +311,46 @@ main {
   color: var(--text);
 }
 
-.articles-container {
+.articles-grid {
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  padding: 0 1rem;
 }
 
 .article-card {
   background: var(--feature-bg);
   color: var(--feature-text);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, background 0.25s, color 0.25s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 7px 20px rgba(0,0,0,0.18);
+}
 
 .article-image {
   width: 100%;
+  max-height: 180px;
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1rem;
 }
 
-.article-card:hover {
-  transform: translateY(-3px);
-}
-
 .article-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
   color: var(--feature-text);
-
 }
 
 .article-summary {
+  margin-bottom: 1rem;
   opacity: 0.9;
-  margin-bottom: 1.5rem;
 }
 
 .article-btn {
@@ -370,12 +359,15 @@ main {
   border-radius: 8px;
   background: var(--accent);
   color: #fff;
-  text-decoration: none;
   font-weight: 600;
-  transition: background 0.25s ease;
-
+  transition: opacity 0.25s ease;
 }
 
+.article-btn:hover {
+  opacity: 0.85;
+}
+
+/* ==== Tema claro/escuro específico ==== */
 :root {
   --bg: #ffffff;
   --text: #1a1a1a;
@@ -387,6 +379,7 @@ main {
 
   --accent: #3f7fff;
 }
+
 html.dark {
   --bg: #0f1117;
   --text: #e0e0e0;
