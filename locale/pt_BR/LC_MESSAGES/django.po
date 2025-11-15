@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-05 22:55-0300\n"
+"POT-Creation-Date: 2025-11-15 14:24-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1305,7 +1305,7 @@ msgstr "Fonte"
 msgid "Articles - Biospace"
 msgstr "Artigos - Biospace"
 
-#: .\templates\articles\article_list.html:9 .\templates\core\base.html:23
+#: .\templates\articles\article_list.html:9 .\templates\core\base.html:56
 msgid "Articles"
 msgstr "Artigos"
 
@@ -1321,11 +1321,11 @@ msgstr "Sem artigos disponíveis."
 msgid "About - Biospace"
 msgstr "Sobre - Biospace"
 
-#: .\templates\core\about.html:8 .\templates\core\base.html:22
+#: .\templates\core\about.html:8 .\templates\core\base.html:55
 msgid "About"
 msgstr "Sobre"
 
-#: .\templates\core\about.html:10
+#: .\templates\core\about.html:11
 msgid ""
 "\n"
 "    Since an early age, I’ve been driven by curiosity about the universe and "
@@ -1349,7 +1349,7 @@ msgstr ""
 "céu com o mesmo encanto e esperança que me movem todos os dias.\n"
 "  "
 
-#: .\templates\core\about.html:14
+#: .\templates\core\about.html:15
 msgid ""
 "\n"
 "    I carry with me not only knowledge from various fields — such as "
@@ -1368,11 +1368,11 @@ msgstr ""
 "mim mesmo.\n"
 "  "
 
-#: .\templates\core\about.html:18
+#: .\templates\core\about.html:19
 msgid "About Biospace"
 msgstr "Sobre o Biospace"
 
-#: .\templates\core\about.html:20
+#: .\templates\core\about.html:21
 msgid ""
 "\n"
 "    Biospace is a personal and scientific initiative born from that same "
@@ -1390,7 +1390,7 @@ msgstr ""
 "científica do entendimento público.\n"
 "  "
 
-#: .\templates\core\about.html:24
+#: .\templates\core\about.html:25
 msgid ""
 "\n"
 "    The goal of Biospace is to make complex ideas accessible, connecting "
@@ -1406,7 +1406,7 @@ msgstr ""
 "orientam os artigos, reflexões e recursos compartilhados aqui.\n"
 "  "
 
-#: .\templates\core\about.html:28
+#: .\templates\core\about.html:29
 msgid ""
 "\n"
 "    Special attention is given to extremophiles — lifeforms that thrive in "
@@ -1423,7 +1423,7 @@ msgstr ""
 "Titã.\n"
 "  "
 
-#: .\templates\core\about.html:32
+#: .\templates\core\about.html:33
 msgid ""
 "\n"
 "    Biospace also follows current scientific missions and discoveries, "
@@ -1443,7 +1443,7 @@ msgstr ""
 "fascínio.\n"
 "  "
 
-#: .\templates\core\about.html:36
+#: .\templates\core\about.html:37
 msgid ""
 "\n"
 "    But Biospace is not just about the unknown. It’s also about the known — "
@@ -1462,7 +1462,7 @@ msgstr ""
 "a vida possível aqui.\n"
 "  "
 
-#: .\templates\core\about.html:40
+#: .\templates\core\about.html:41
 msgid ""
 "\n"
 "    This platform is designed for anyone who shares a fascination with the "
@@ -1478,7 +1478,7 @@ msgstr ""
 "questionar — juntos.\n"
 "  "
 
-#: .\templates\core\about.html:44
+#: .\templates\core\about.html:45
 msgid ""
 "Biospace is where life meets space — and where questions become exploration."
 msgstr ""
@@ -1487,7 +1487,7 @@ msgstr ""
 
 #: .\templates\core\astrobiology.html:4 .\templates\core\astrobiology.html:12
 #: .\templates\core\astrobiology.html:15 .\templates\core\extremophiles.html:15
-#: .\templates\core\home.html:14
+#: .\templates\core\home.html:15
 msgid "Astrobiology"
 msgstr "Astrobiologia"
 
@@ -1502,6 +1502,14 @@ msgid ""
 "origin of life on Earth and prepares us for future discoveries beyond our "
 "planet."
 msgstr ""
+"Astrobiologia é o estudo da vida além da Terra — como ela pode surgir, "
+"sobreviver e ser detectada em outras partes do universo. Os cientistas da "
+"área fazem perguntas fundamentais: poderia existir vida em Marte, Europa ou "
+"outros mundos distantes? Quais condições são necessárias para que a vida "
+"apareça? A astrobiologia reúne biologia, astronomia, química e geologia para "
+"explorar essas questões. Mesmo sem termos encontrado vida alienígena ainda, "
+"estudar astrobiologia nos ajuda a entender a origem da vida na Terra e nos "
+"prepara para futuras descobertas além do nosso planeta."
 
 #: .\templates\core\astrobiology.html:21
 msgid ""
@@ -1512,6 +1520,12 @@ msgid ""
 "the upcoming missions to Europa and Titan, are designed to search for these "
 "clues."
 msgstr ""
+"Um dos principais objetivos da astrobiologia é identificar “biossinaturas” — "
+"sinais químicos ou físicos de que a vida pode estar presente. Isso inclui "
+"moléculas como metano ou oxigênio, ou padrões em formações rochosas que "
+"indicam atividade microbiana no passado. Missões espaciais, como as enviadas "
+"para Marte e as futuras missões para Europa e Titã, são projetadas para "
+"buscar esses indícios."
 
 #: .\templates\core\astrobiology.html:23
 msgid ""
@@ -1520,29 +1534,31 @@ msgid ""
 "change our perspective about ourselves and our place in the cosmos? It's a "
 "science that pushes boundaries and invites everyone to wonder."
 msgstr ""
+"A astrobiologia também inspira questões filosóficas profundas: estamos "
+"sozinhos no universo? Se descobrirmos vida alienígena, mesmo que apenas "
+"microbiana, como isso mudaria nossa visão sobre nós mesmos e nosso lugar no "
+"cosmos? É uma ciência que ultrapassa limites e convida todos a imaginar."
 
 #: .\templates\core\astrobiology.html:28 .\templates\core\earth_analogs.html:28
 #: .\templates\core\extremophiles.html:28
 msgid "Learn more"
 msgstr ""
 
-#: .\templates\core\base.html:17
-msgid "Biospace"
-msgstr ""
-
-#: .\templates\core\base.html:21
+#: .\templates\core\base.html:54
 msgid "Home"
 msgstr "Início"
 
-#: .\templates\core\base.html:24 .\templates\core\contact.html:7
+#: .\templates\core\base.html:57 .\templates\core\contact.html:7
 msgid "Contact"
 msgstr "Contato"
 
-#: .\templates\core\base.html:57
-msgid "&copy; 2025 Biospace. All rights reserved."
+#: .\templates\core\base.html:97
+#, fuzzy
+#| msgid "&copy; 2025 Biospace. All rights reserved."
+msgid "All rights reserved."
 msgstr "&copy; 2025 Biospace. Todos os direitos reservados."
 
-#: .\templates\core\base.html:58
+#: .\templates\core\base.html:98
 msgid "Made with 🌌 and scientific curiosity."
 msgstr "Feito com 🌌 e curiosidade científica."
 
@@ -1557,7 +1573,7 @@ msgid "Contact us by email: biospace67@gmail.com"
 msgstr "Entre em contato conosco pelo e-mail: contato@biospace.com"
 
 #: .\templates\core\earth_analogs.html:4 .\templates\core\earth_analogs.html:12
-#: .\templates\core\home.html:22
+#: .\templates\core\home.html:25
 msgid "Earth Analogs"
 msgstr "Análogos da Terra"
 
@@ -1575,6 +1591,14 @@ msgid ""
 "theories, and even ideas about alien life, all without leaving Earth. "
 "They’re like nature’s own space laboratories."
 msgstr ""
+"Análogos terrestres são locais do nosso planeta que se parecem com as "
+"condições que esperamos encontrar em outros mundos. Pense no Deserto do "
+"Atacama, no Chile — um dos lugares mais secos da Terra — ou nos lagos "
+"subglaciais e escondidos da Antártida. Cientistas estudam esses ambientes "
+"como substitutos de Marte, Europa ou até exoplanetas distantes. Esses locais-"
+"análogos permitem testar equipamentos, teorias e até ideias sobre vida "
+"alienígena, tudo sem sair da Terra. São como laboratórios espaciais da "
+"própria natureza."
 
 #: .\templates\core\earth_analogs.html:21
 msgid ""
@@ -1583,6 +1607,11 @@ msgid ""
 "Spain’s Río Tinto mimic the chemical makeup of Martian soil. Each of these "
 "places offers insights into how life might endure in alien landscapes."
 msgstr ""
+"Por exemplo, nos vales secos da Antártida, vida microbiana sobrevive no gelo "
+"e nas rochas, semelhante ao que poderíamos encontrar em Marte. Os rios "
+"ácidos do Río Tinto, na Espanha, imitam a composição química do solo "
+"marciano. Cada um desses lugares oferece pistas sobre como a vida pode "
+"persistir em paisagens alienígenas."
 
 #: .\templates\core\earth_analogs.html:23
 msgid ""
@@ -1591,9 +1620,13 @@ msgid ""
 "exploration, offering hands-on experience for scientists and engineers "
 "before we venture farther into space."
 msgstr ""
+"Os análogos terrestres também são usados para treinar astronautas e testar "
+"tecnologias espaciais em condições reais e rigorosas. Eles aproximam teoria "
+"e exploração, oferecendo experiência prática para cientistas e engenheiros "
+"antes de avançarmos ainda mais no espaço."
 
 #: .\templates\core\extremophiles.html:4 .\templates\core\extremophiles.html:12
-#: .\templates\core\home.html:18
+#: .\templates\core\home.html:20
 msgid "Extremophiles"
 msgstr "Extremófilos"
 
@@ -1607,6 +1640,15 @@ msgid ""
 "maybe it can exist in harsh environments on other planets too. Studying them "
 "gives us clues about how life might adapt elsewhere in the cosmos."
 msgstr ""
+"Extremófilos são organismos que prosperam em lugares antes considerados "
+"inabitáveis — como fontes termais ferventes, respiradouros hidrotermais no "
+"fundo do oceano ou lagos extremamente salgados. Essas formas de vida "
+"resilientes nos ajudam a repensar o que a vida realmente precisa para "
+"sobreviver. Como os extremófilos vivem em ambientes tão extremos na Terra, "
+"eles são essenciais para a astrobiologia: se a vida pode existir nessas "
+"condições aqui, talvez também possa existir em ambientes hostis em outros "
+"planetas. Estudá-los nos dá pistas sobre como a vida pode se adaptar em "
+"outros lugares do cosmos."
 
 #: .\templates\core\extremophiles.html:21
 msgid ""
@@ -1616,6 +1658,12 @@ msgid ""
 "sunlight to fuel their survival. These adaptations show just how flexible "
 "and creative life can be."
 msgstr ""
+"Alguns extremófilos conseguem sobreviver a níveis de radiação que seriam "
+"mortais para os humanos, ou entrar em dormência por décadas em desertos "
+"secos, reativando apenas quando a água volta a ficar disponível. Outros "
+"vivem na completa escuridão, utilizando substâncias químicas em vez de luz "
+"solar para obter energia. Essas adaptações mostram o quão flexível e "
+"criativa a vida pode ser."
 
 #: .\templates\core\extremophiles.html:23
 msgid ""
@@ -1625,6 +1673,10 @@ msgid ""
 "impossible, such as beneath the ice of Europa or in the acidic clouds of "
 "Venus."
 msgstr ""
+"Ao estudar os extremófilos, os cientistas estão expandindo a “zona "
+"habitável” — o conjunto de condições onde a vida pode existir. Isso nos "
+"torna mais abertos ao buscar vida em ambientes que antes pareciam "
+"impossíveis, como sob o gelo de Europa ou nas nuvens ácidas de Vênus."
 
 #: .\templates\core\home.html:4
 msgid "Início"
@@ -1638,29 +1690,27 @@ msgstr "Bem vindo ao"
 msgid "Exploring the limits of life in the universe and the extremes of Earth."
 msgstr "Explorando os limites da vida no universo e os extremos da Terra."
 
-#: .\templates\core\home.html:15
+#: .\templates\core\home.html:16
 msgid "Study how life can arise and survive outside of Earth."
 msgstr "Estude como a vida pode surgir e sobreviver fora da Terra."
 
-#: .\templates\core\home.html:19
+#: .\templates\core\home.html:21
 msgid "Learn about organisms that live in extreme conditions."
 msgstr "Aprenda sobre organismos que vivem em condições extremas."
 
-#: .\templates\core\home.html:23
+#: .\templates\core\home.html:26
 msgid "Environments on Earth that help us understand distant worlds."
 msgstr "Ambientes na Terra que nos ajudam a entender mundos distantes."
 
-#: .\templates\core\home.html:27
-msgid "Start your cosmic journey"
-msgstr "Comece sua jornada cósmica"
+#~ msgid "Start your cosmic journey"
+#~ msgstr "Comece sua jornada cósmica"
 
-#: .\templates\core\home.html:28
-msgid "Read our articles, discover new worlds and share knowledge."
-msgstr "Leia nossos artigos, descubra novos mundos e compartilhe conhecimento."
+#~ msgid "Read our articles, discover new worlds and share knowledge."
+#~ msgstr ""
+#~ "Leia nossos artigos, descubra novos mundos e compartilhe conhecimento."
 
-#: .\templates\core\home.html:29
-msgid "View articles"
-msgstr "Ver artigos"
+#~ msgid "View articles"
+#~ msgstr "Ver artigos"
 
 #~ msgid ""
 #~ "Biospace is a project dedicated to astrobiology, exploring topics such as "

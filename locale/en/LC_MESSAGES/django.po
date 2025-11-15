@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-05 22:47-0300\n"
+"POT-Creation-Date: 2025-11-15 14:19-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1305,7 +1305,7 @@ msgstr ""
 msgid "Articles - Biospace"
 msgstr ""
 
-#: .\templates\articles\article_list.html:9 .\templates\core\base.html:23
+#: .\templates\articles\article_list.html:9 .\templates\core\base.html:56
 msgid "Articles"
 msgstr ""
 
@@ -1321,11 +1321,11 @@ msgstr ""
 msgid "About - Biospace"
 msgstr ""
 
-#: .\templates\core\about.html:8 .\templates\core\base.html:22
+#: .\templates\core\about.html:8 .\templates\core\base.html:55
 msgid "About"
 msgstr ""
 
-#: .\templates\core\about.html:10
+#: .\templates\core\about.html:11
 msgid ""
 "\n"
 "    Since an early age, I’ve been driven by curiosity about the universe and "
@@ -1339,7 +1339,7 @@ msgid ""
 "  "
 msgstr ""
 
-#: .\templates\core\about.html:14
+#: .\templates\core\about.html:15
 msgid ""
 "\n"
 "    I carry with me not only knowledge from various fields — such as "
@@ -1350,11 +1350,11 @@ msgid ""
 "  "
 msgstr ""
 
-#: .\templates\core\about.html:18
+#: .\templates\core\about.html:19
 msgid "About Biospace"
 msgstr ""
 
-#: .\templates\core\about.html:20
+#: .\templates\core\about.html:21
 msgid ""
 "\n"
 "    Biospace is a personal and scientific initiative born from that same "
@@ -1365,7 +1365,7 @@ msgid ""
 "  "
 msgstr ""
 
-#: .\templates\core\about.html:24
+#: .\templates\core\about.html:25
 msgid ""
 "\n"
 "    The goal of Biospace is to make complex ideas accessible, connecting "
@@ -1375,7 +1375,7 @@ msgid ""
 "  "
 msgstr ""
 
-#: .\templates\core\about.html:28
+#: .\templates\core\about.html:29
 msgid ""
 "\n"
 "    Special attention is given to extremophiles — lifeforms that thrive in "
@@ -1385,7 +1385,7 @@ msgid ""
 "  "
 msgstr ""
 
-#: .\templates\core\about.html:32
+#: .\templates\core\about.html:33
 msgid ""
 "\n"
 "    Biospace also follows current scientific missions and discoveries, "
@@ -1397,7 +1397,7 @@ msgid ""
 "  "
 msgstr ""
 
-#: .\templates\core\about.html:36
+#: .\templates\core\about.html:37
 msgid ""
 "\n"
 "    But Biospace is not just about the unknown. It’s also about the known — "
@@ -1408,7 +1408,7 @@ msgid ""
 "  "
 msgstr ""
 
-#: .\templates\core\about.html:40
+#: .\templates\core\about.html:41
 msgid ""
 "\n"
 "    This platform is designed for anyone who shares a fascination with the "
@@ -1418,14 +1418,14 @@ msgid ""
 "  "
 msgstr ""
 
-#: .\templates\core\about.html:44
+#: .\templates\core\about.html:45
 msgid ""
 "Biospace is where life meets space — and where questions become exploration."
 msgstr ""
 
 #: .\templates\core\astrobiology.html:4 .\templates\core\astrobiology.html:12
 #: .\templates\core\astrobiology.html:15 .\templates\core\extremophiles.html:15
-#: .\templates\core\home.html:14
+#: .\templates\core\home.html:15
 msgid "Astrobiology"
 msgstr ""
 
@@ -1464,23 +1464,19 @@ msgstr ""
 msgid "Learn more"
 msgstr ""
 
-#: .\templates\core\base.html:17
-msgid "Biospace"
-msgstr ""
-
-#: .\templates\core\base.html:21
+#: .\templates\core\base.html:54
 msgid "Home"
 msgstr ""
 
-#: .\templates\core\base.html:24 .\templates\core\contact.html:7
+#: .\templates\core\base.html:57 .\templates\core\contact.html:7
 msgid "Contact"
 msgstr ""
 
-#: .\templates\core\base.html:57
-msgid "&copy; 2025 Biospace. All rights reserved."
+#: .\templates\core\base.html:97
+msgid "All rights reserved."
 msgstr ""
 
-#: .\templates\core\base.html:58
+#: .\templates\core\base.html:98
 msgid "Made with 🌌 and scientific curiosity."
 msgstr ""
 
@@ -1493,7 +1489,7 @@ msgid "Contact us by email: biospace67@gmail.com"
 msgstr ""
 
 #: .\templates\core\earth_analogs.html:4 .\templates\core\earth_analogs.html:12
-#: .\templates\core\home.html:22
+#: .\templates\core\home.html:25
 msgid "Earth Analogs"
 msgstr ""
 
@@ -1529,7 +1525,7 @@ msgid ""
 msgstr ""
 
 #: .\templates\core\extremophiles.html:4 .\templates\core\extremophiles.html:12
-#: .\templates\core\home.html:18
+#: .\templates\core\home.html:20
 msgid "Extremophiles"
 msgstr ""
 
@@ -1574,26 +1570,14 @@ msgstr ""
 msgid "Exploring the limits of life in the universe and the extremes of Earth."
 msgstr ""
 
-#: .\templates\core\home.html:15
+#: .\templates\core\home.html:16
 msgid "Study how life can arise and survive outside of Earth."
 msgstr ""
 
-#: .\templates\core\home.html:19
+#: .\templates\core\home.html:21
 msgid "Learn about organisms that live in extreme conditions."
 msgstr ""
 
-#: .\templates\core\home.html:23
+#: .\templates\core\home.html:26
 msgid "Environments on Earth that help us understand distant worlds."
-msgstr ""
-
-#: .\templates\core\home.html:27
-msgid "Start your cosmic journey"
-msgstr ""
-
-#: .\templates\core\home.html:28
-msgid "Read our articles, discover new worlds and share knowledge."
-msgstr ""
-
-#: .\templates\core\home.html:29
-msgid "View articles"
 msgstr ""
