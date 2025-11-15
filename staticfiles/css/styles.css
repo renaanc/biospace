@@ -303,73 +303,77 @@ main {
 /*                  ARTICLE LIST (ATUALIZADO)               */
 /* ========================================================= */
 
-/* === GRID DE ARTIGOS === */
+//* === ARTICLES LIST SECTION === */
+
 .articles-section {
-  padding: 40px 20px;
+  padding: 3rem 1rem;
   display: flex;
   justify-content: center;
 }
 
-.articles-grid {
-  width: 100%;
-  max-width: 1200px;
+.articles-container {
   display: grid;
-  gap: 25px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
 }
 
 /* === CARD === */
+
 .article-card {
-  background: var(--card-bg, #ffffff);
+  background: var(--feature-bg, #1a1a1a);
+  color: var(--feature-text, #fff);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
-  transition: transform .2s ease;
 }
 
-.article-card:hover {
-  transform: translateY(-4px);
-}
-
-/* === IMAGEM === */
-.article-image-wrapper {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
+/* === IMAGE === */
 
 .article-image {
   width: 100%;
-  height: 100%;
+  height: 180px;
   object-fit: cover;
+  display: block;
 }
 
-/* === CONTEÚDO === */
+/* === CONTENT === */
+
 .article-content {
-  padding: 20px;
+  padding: 1.5rem;
 }
 
 .article-title {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
 }
 
 .article-summary {
-  color: #555;
-  margin-bottom: 15px;
+  color: #d1d1d1;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
 }
+
+/* === BUTTON === */
 
 .article-btn {
   display: inline-block;
-  padding: 10px 14px;
+  padding: 0.6rem 1.2rem;
+  background: #4f79ff;
+  color: #fff;
+  font-weight: bold;
   border-radius: 8px;
-  background: #4e73df;
-  color: white;
   text-decoration: none;
-  font-weight: 500;
+  transition: 0.2s ease;
 }
+
+.article-btn:hover {
+  background: #3a5be0;
+}
+
 
 
 .article-btn:hover {

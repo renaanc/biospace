@@ -2,20 +2,16 @@
 {% load static %}
 {% load i18n %}
 
+
 {% block title %}{% trans "Articles - Biospace" %}{% endblock %}
 
 {% block content %}
 <section class="articles-section">
-    <div class="articles-grid">
+    <div class="articles-container">
 
         {% for article in articles %}
         <article class="article-card">
-
-            <div class="article-image-wrapper">
-                {% if article.image %}
-                    <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image">
-                {% endif %}
-            </div>
+            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image">
 
             <div class="article-content">
                 <h2 class="article-title">{{ article.title }}</h2>
@@ -25,13 +21,13 @@
                     {% trans "Read more" %}
                 </a>
             </div>
-
         </article>
         {% endfor %}
 
     </div>
 </section>
 {% endblock %}
+
 
 
 
