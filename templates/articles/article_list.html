@@ -11,7 +11,7 @@
             <article class="article-card">
                 <h2 class="article-title">{{ article.title }}</h2>
                 <p class="article-summary">{{ article.summary }}</p>
-                <a href="{% url 'article_detail' article.slug %}" class="article-btn">
+                <a href="{% url 'articles:article_detail' slug=article.slug %}" class="article-btn">
                     {% trans "Read more" %}
                 </a>
             </article>
