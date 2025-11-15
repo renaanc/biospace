@@ -355,6 +355,7 @@ main, header, footer, .container {
 }
 
 /* ==== FEATURES ==== */
+
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -365,11 +366,21 @@ main, header, footer, .container {
 }
 
 .feature {
+  display: block;                /* transforma o <a> em bloco */
   background-color: var(--feature-bg);
   color: var(--feature-text);
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
+  text-decoration: none;         /* remove sublinhado */
+  transition: 0.2s ease;
+}
+
+/* Hover parecido com card interativo */
+.feature:hover {
+  transform: translateY(-4px);
+  background-color: var(--feature-bg-hover, #e5e5e5);
+  cursor: pointer;
 }
 
 /* ==== Idioma ==== */
