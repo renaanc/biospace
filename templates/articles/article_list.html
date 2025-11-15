@@ -2,39 +2,32 @@
 {% load static %}
 {% load i18n %}
 
-
 {% block title %}{% trans "Articles - Biospace" %}{% endblock %}
 
 {% block content %}
-<section class="articles-section">
-    <div class="articles-container">
+<section class="articles-list-section">
+    <div class="articles-list-container">
 
         {% for article in articles %}
-        <article class="article-card">
-            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image">
+        <article class="article-item">
 
-            <div class="article-content">
+            <div class="article-thumb">
+                <img src="{{ article.image.url }}" alt="{{ article.title }}">
+            </div>
+
+            <div class="article-info">
                 <h2 class="article-title">{{ article.title }}</h2>
-                <p class="article-summary">{{ article.summary }}</p>
+                <p class="article-summary">{{ article.summary|striptags }}</p>
 
-                <a href="{% url 'articles:article_detail' slug=article.slug %}" class="article-btn">
+                <a href="{% url 'articles:article_detail' slug=article.slug %}" 
+                   class="article-btn">
                     {% trans "Read more" %}
                 </a>
             </div>
+
         </article>
         {% endfor %}
 
     </div>
 </section>
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
