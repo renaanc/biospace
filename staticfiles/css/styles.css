@@ -335,7 +335,7 @@ main {
 }
 
 .article-image {
-  width: 100%;
+  width: 30%;
   max-height: 180px;
   object-fit: cover;
   border-radius: 10px;
