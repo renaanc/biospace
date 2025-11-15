@@ -4,7 +4,6 @@
 
 {% block title %}{% trans "Articles - Biospace" %}{% endblock %}
 
-
 {% block content %}
 <section class="articles-section">
     <div class="articles-grid">
@@ -12,23 +11,34 @@
         {% for article in articles %}
         <article class="article-card">
 
-            {% if article.thumbnail %}
-                <img src="{{ article.thumbnail }}" alt="{{ article.title }}" class="article-image">
-            {% elif article.image %}
-                <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image">
-            {% endif %}
+            <div class="article-image-wrapper">
+                {% if article.image %}
+                    <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image">
+                {% endif %}
+            </div>
 
-            <h2 class="article-title">{{ article.title }}</h2>
-            <p class="article-summary">{{ article.summary|truncatewords:25 }}</p>
+            <div class="article-content">
+                <h2 class="article-title">{{ article.title }}</h2>
+                <p class="article-summary">{{ article.summary }}</p>
 
-            <a href="{% url 'articles:article_detail' slug=article.slug %}" class="article-btn">
-                {% trans "Read more" %}
-            </a>
+                <a href="{% url 'articles:article_detail' slug=article.slug %}" class="article-btn">
+                    {% trans "Read more" %}
+                </a>
+            </div>
 
         </article>
         {% endfor %}
 
-
     </div>
 </section>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
