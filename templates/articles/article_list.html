@@ -7,15 +7,27 @@
 {% block content %}
 <section class="articles-section">
     <div class="articles-container">
+
         {% for article in articles %}
-            <article class="article-card">
-                <h2 class="article-title">{{ article.title }}</h2>
-                <p class="article-summary">{{ article.summary }}</p>
-                <a href="{% url 'articles:article_detail' slug=article.slug %}" class="article-btn">
-                    {% trans "Read more" %}
-                </a>
-            </article>
+        <article class="article-card">
+
+            {% if article.thumbnail %}
+                <img src="{{ article.thumbnail }}" class="article-image" alt="{{ article.title }}">
+            {% elif article.image %}
+                <img src="{{ article.image.url }}" class="article-image" alt="{{ article.title }}">
+            {% endif %}
+
+            <h2 class="article-title">{{ article.title }}</h2>
+            <p class="article-summary">{{ article.summary|truncatewords:25 }}</p>
+
+            <a href="{% url 'articles:article_detail' slug=article.slug %}" class="article-btn">
+                {% trans "Read more" %}
+            </a>
+
+        </article>
         {% endfor %}
+
+
     </div>
 </section>
 {% endblock %}
