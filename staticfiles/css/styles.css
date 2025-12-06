@@ -348,6 +348,15 @@ main {
   object-fit: cover;
 }
 
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 6px;
+}
+
+
 /* === CONTENT === */
 
 .article-info {
@@ -355,8 +364,10 @@ main {
 }
 
 .article-title {
-  font-size: 1.4rem;
-  margin-bottom: .6rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: .8rem;
   color: var(--text);
 }
 
