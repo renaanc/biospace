@@ -156,7 +156,6 @@ LOGGING = {
     },
 }
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
@@ -170,8 +169,6 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,
     }
 }
-
-
 
 USE_I18N = True
 
