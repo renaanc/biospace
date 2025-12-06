@@ -402,3 +402,16 @@ html.dark {
   --accent: #5aa0ff;
 }
 
+.article-img {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* opcional: limita o tamanho do resumo para ficar mais uniforme */
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* nº de linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+

@@ -7,24 +7,36 @@
 {% block content %}
 <div class="container my-4">
   <h2 class="mb-4">{% trans "Articles" %}</h2>
+
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     {% for article in articles %}
       <div class="col">
-        <div class="card h-100">
+        <div class="card h-100 d-flex flex-column">
+
           {% if article.thumbnail %}
-          <img src="{{ article.thumbnail }}" class="card-img-top" alt="{{ article.title }}">
+            <img src="{{ article.thumbnail }}" class="card-img-top article-img" alt="{{ article.title }}">
           {% elif article.image %}
-          <img src="{{ article.image.url }}" class="card-img-top" alt="{{ article.title }}">
-        {% endif %}        
-          <div class="card-body">
+            <img src="{{ article.image.url }}" class="card-img-top article-img" alt="{{ article.title }}">
+          {% endif %}
+
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ article.title }}</h5>
-            <p class="card-text">{{ article.summary|truncatewords:20 }}</p>
-            <a href="{% url 'articles:article_detail' slug=article.slug %}" class="btn btn-primary">{% trans "Read more" %}</a>
+
+            <p class="card-text flex-grow-1">
+              {{ article.summary|truncatewords:20 }}
+            </p>
+
+            <a href="{% url 'articles:article_detail' slug=article.slug %}"
+               class="btn btn-primary mt-auto">
+              {% trans "Read more" %}
+            </a>
           </div>
+
         </div>
       </div>
     {% empty %}
-      <li>{% trans "No articles available." %}</li>
+      <p>{% trans "No articles available." %}</p>
     {% endfor %}
-  </ul>
+  </div>
+</div>
 {% endblock %}
