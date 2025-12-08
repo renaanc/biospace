@@ -426,13 +426,3 @@ html.dark {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
-.article-content em,
-.article-content i {
-  font-style: italic !important;
-}
-
-.article-content strong,
-.article-content b {
-  font-weight: bold !important;
-}
