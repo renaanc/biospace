@@ -204,12 +204,12 @@ main {
 }
 
 /* ==== Ajuste de textos ==== */
-.content-text,
-.content-text *:not(button):not(a):not(input):not(textarea) {
+.content-text {
   margin: initial !important;
   padding: initial !important;
   box-sizing: border-box !important;
 }
+
 
 .content-text p {
   margin-bottom: 1.8rem !important;
