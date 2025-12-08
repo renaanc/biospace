@@ -434,6 +434,3 @@ html.dark {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
-strong, b { font-weight: bold !important; }
-em, i { font-style: italic !important; }
