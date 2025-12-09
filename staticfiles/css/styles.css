@@ -1,4 +1,4 @@
-/* ==== RESET GLOBAL SEGURO ==== */
+/* ==== RESET GLOBAL SEGURO (SEM font: inherit EM LUGAR NENHUM) ==== */
 
 /* Garantir box-sizing consistente */
 *,
@@ -21,13 +21,13 @@ body {
   color: #000;
 }
 
-/* Links sem decoração exagerada */
+/* Links básicos */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Imagens e mídias responsivas */
+/* Mídias responsivas */
 img,
 picture,
 video,
@@ -37,20 +37,19 @@ svg {
   max-width: 100%;
 }
 
-/* Listas com padding padrão */
+/* Listas */
 ul,
 ol {
   padding-left: 1.25rem;
 }
 
-
-/* Tabelas limpas */
+/* Tabelas */
 table {
   border-collapse: collapse;
   width: 100%;
 }
 
-/* GARANTIR ITÁLICO E NEGRITO (caso algo tente resetar) */
+/* Garantir itálico e negrito SEM depender de font: inherit */
 em,
 i {
   font-style: italic !important;
@@ -61,6 +60,22 @@ b {
   font-weight: bold !important;
 }
 
+/* ==== Fontes (restauradas) ==== */
+@font-face {
+  font-family: 'Exo2-Bold';
+  src: url('/static/font/Exo2-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Exo2-SemiBold';
+  src: url('/static/font/Exo2-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ==== Variáveis de Tema ==== */
 :root {
@@ -79,21 +94,21 @@ b {
   --text-padding: clamp(10px, 3vw, 60px);
 }
 
-/* ==== HEADER TRANSLÚCIDO NO MODO ESCURO ==== */
+/* HEADER MODO ESCURO */
 [data-theme="dark"] .site-header {
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 10;
   padding: 20px var(--text-padding);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(33, 37, 41, 0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  background-color: rgba(33,37,41,0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  transition: background-color .3s ease, backdrop-filter .3s ease;
 }
 
-/* ==== Tipografia Base ==== */
+/* Tipografia Base */
 body {
   font-family: 'Segoe UI Emoji', 'Segoe UI', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-color);
@@ -103,7 +118,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* ==== Layout Principal ==== */
+/* Layout Principal */
 .wrapper {
   width: 100%;
   padding: 0 var(--text-padding);
@@ -117,17 +132,17 @@ main {
   padding: 2rem 0;
 }
 
-/* ==== Cabeçalho ==== */
+/* Cabeçalho */
 .site-header {
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 10;
   padding: 20px var(--text-padding);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255,255,255,0.7);
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
@@ -139,7 +154,7 @@ main {
   gap: 1rem;
 }
 
-/* ==== NAVBAR ==== */
+/* NAV */
 .site-header nav {
   display: flex;
   align-items: center;
@@ -156,18 +171,14 @@ main {
 .site-header nav a {
   color: var(--text-color);
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color .3s;
 }
 
 .site-header nav a:hover {
   color: var(--accent-color);
 }
 
-.site-header nav .d-flex.align-items-center.gap-2 {
-  margin-left: auto;
-}
-
-/* ==== Conteúdo ==== */
+/* Conteúdo */
 .content-text {
   max-width: var(--content-max-width);
   margin: 2rem auto;
@@ -201,7 +212,7 @@ main {
   color: var(--accent-hover);
 }
 
-/* ==== Rodapé ==== */
+/* Rodapé */
 .site-footer {
   background-color: var(--footer-bg);
   text-align: center;
@@ -211,19 +222,7 @@ main {
   width: 100%;
 }
 
-/* ==== Ajuste de textos ==== */
-.content-text {
-  margin: initial !important;
-  padding: initial !important;
-  box-sizing: border-box !important;
-}
-
-
-.content-text p {
-  margin-bottom: 1.8rem !important;
-}
-
-/* ==== HERO ==== */
+/* Hero */
 .hero {
   background: linear-gradient(to right, var(--hero-gradient-start), var(--hero-gradient-end));
   padding: 4rem 2rem;
@@ -244,72 +243,7 @@ main {
   margin: 0 auto 1.5rem;
 }
 
-/* ==== FEATURES ==== */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  padding: 3rem 1rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.feature {
-  background-color: var(--feature-bg);
-  color: var(--feature-text);
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-}
-
-/* ==== Idioma ==== */
-.language-toggle-form {
-  display: inline-block;
-  text-align: center;
-}
-
-.language-btn img.flag {
-  width: 24px;
-  height: 24px;
-}
-
-/* ==== Parágrafo com recuo ==== */
-.paragrafo-recuado {
-  text-indent: 2em !important;
-}
-
-/* ==== Logo ==== */
-.logo-title {
-  font-family: 'Exo2', sans-serif;
-  letter-spacing: 0.5px;
-  color: #ffffff;
-}
-
-.logo-link {
-  color: var(--text-color);
-}
-
-/* ==== Fontes ==== */
-@font-face {
-  font-family: 'Exo2-Bold';
-  src: url('font/Exo2-Bold.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Exo2-SemiBold';
-  src: url('font/Exo2-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ========================================================= */
-/*                       ARTICLE LIST                        */
-/* ========================================================= */
-
+/* Article List */
 .articles-list-section {
   padding: 3rem 1rem;
   display: flex;
@@ -325,8 +259,6 @@ main {
   gap: 2rem;
 }
 
-/* === CARD === */
-
 .article-item {
   background: var(--card-bg);
   border-radius: 14px;
@@ -340,8 +272,6 @@ main {
 .article-item:hover {
   transform: translateY(-4px);
 }
-
-/* === IMAGE === */
 
 .article-thumb {
   width: 100%;
@@ -363,47 +293,7 @@ main {
   border-radius: 6px;
 }
 
-
-/* === CONTENT === */
-
-.article-info {
-  padding: 1.4rem;
-}
-
-.article-title {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: .8rem;
-  color: var(--text);
-}
-
-.article-summary {
-  color: var(--text-secondary, #777);
-  font-size: .95rem;
-  line-height: 1.45;
-  margin-bottom: 1.2rem;
-}
-
-/* === BUTTON === */
-
-.article-btn {
-  display: inline-block;
-  background: var(--accent);
-  color: #fff;
-  padding: .65rem 1.2rem;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background .2s ease, opacity .2s ease;
-}
-
-.article-btn:hover {
-  opacity: .85;
-}
-
-/* === LIGHT / DARK THEMES === */
-
+/* Tema Claro */
 :root {
   --bg: #ffffff;
   --text: #1a1a1a;
@@ -412,7 +302,7 @@ main {
   --accent: #3f7fff;
 }
 
-
+/* Tema Escuro */
 html.dark {
   --bg: #0f1117;
   --text: #e4e4e4;
@@ -426,11 +316,22 @@ html.dark {
   object-fit: cover;
 }
 
-/* opcional: limita o tamanho do resumo para ficar mais uniforme */
 .card-text {
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* nº de linhas */
-  line-clamp: 3; 
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Pequeno anti-reset e garantia de tipografia */
+* {
+  font-family: inherit;
+}
+
+html, body {
+  font-family: 'Segoe UI Emoji', 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+}
+
+em, i { font-style: italic !important; }
+strong, b { font-weight: 700 !important; }
