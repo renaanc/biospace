@@ -16,7 +16,7 @@ document.getElementById("like-btn").addEventListener("click", function () {
 
   if (localStorage.getItem("liked-" + slug)) return;
 
-  fetch(`/like/${slug}/`, {
+  fetch(`like/`, {
     method: "POST",
     headers: {
       "X-CSRFToken": "{{ csrf_token }}",
