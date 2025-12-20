@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         headers: {
           "X-CSRFToken": csrfToken,
         },
-        credentials: "same-origin",
+        credentials: "include",
       })
         .then(res => res.json())
         .then(data => {
