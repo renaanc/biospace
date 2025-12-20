@@ -33,9 +33,14 @@
 
 {% csrf_token %}
 
-<button id="like-btn" data-slug="{{ article.slug }}">
+<button
+  id="like-btn"
+  data-slug="{{ article.slug }}"
+  data-like-url="{% url 'articles:like_article' article.slug %}"
+>
   ❤️ Curtir
 </button>
+
 
 <span id="like-count">
   {{ article.likes.count }}

@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     return cookieValue;
   }
-
   // =====================
   // LIKE BUTTON
   // =====================
@@ -24,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
   if (likeBtn) {
     console.log("Like button encontrado ✅");
 
-    const slug = likeBtn.dataset.slug;
+    const likeUrl = likeBtn.dataset.likeUrl;
     const csrfToken = getCookie("csrftoken");
 
     likeBtn.addEventListener("click", () => {
       console.log("Clique no like");
 
-      fetch(`/like/${slug}/`, {
+      fetch(likeUrl, {
         method: "POST",
         headers: {
           "X-CSRFToken": csrfToken,
