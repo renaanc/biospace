@@ -31,6 +31,12 @@
   {{ article.content|safe  }}
 </div>
 
+<button id="like-btn"
+        data-slug="{{ article.slug }}"
+        class="btn btn-outline-primary btn-sm">
+  ❤️ Curtir (<span id="like-count">{{ article.likes.count }}</span>)
+</button>
+
 <!-- Fonte -->
 <p>
   <strong>{% trans "Source" %}:</strong>

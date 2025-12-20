@@ -63,3 +63,24 @@ toggle.addEventListener("click", () => {
   localStorage.setItem("theme", theme);
   toggle.textContent = theme === "dark" ? "☀️" : "🌙";
 });
+
+document.getElementById("like-btn").addEventListener("click", function () {
+  const slug = this.dataset.slug;
+
+  if (localStorage.getItem("liked-" + slug)) return;
+
+  fetch(`/like/${slug}/`, {
+    method: "POST",
+    headers: {
+      "X-CSRFToken": "{{ csrf_token }}",
+    },
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.liked) {
+      document.getElementById("like-count").innerText = data.likes_count;
+      localStorage.setItem("liked-" + slug, "true");
+    }
+  });
+});
+
