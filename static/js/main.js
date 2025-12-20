@@ -10,24 +10,40 @@ document.addEventListener("DOMContentLoaded", function () {
     console.warn("Token CSRF não encontrado.");
   }
 
-// BOTAO LIKE
-document.getElementById("like-btn").addEventListener("click", function () {
-  const slug = this.dataset.slug;
-
-  if (localStorage.getItem("liked-" + slug)) return;
-
-  fetch(`like/`, {
-    method: "POST",
-    headers: {
-      "X-CSRFToken": "{{ csrf_token }}",
-    },
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.liked) {
-      document.getElementById("like-count").innerText = data.likes_count;
-      localStorage.setItem("liked-" + slug, "true");
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let cookie of cookies) {
+      cookie = cookie.trim();
+      if (cookie.startsWith(name + "=")) {
+        cookieValue = decodeURIComponent(cookie.slice(name.length + 1));
+        break;
+      }
     }
+  }
+  return cookieValue;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const likeBtn = document.getElementById("like-btn");
+  if (!likeBtn) return;
+
+  const slug = likeBtn.dataset.slug;
+  const csrfToken = getCookie("csrftoken");
+
+  likeBtn.addEventListener("click", () => {
+    fetch(`/like/${slug}/`, {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": csrfToken,
+      },
+      credentials: "same-origin",
+    })
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("like-count").innerText = data.likes_count;
+    });
   });
 });
 

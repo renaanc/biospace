@@ -31,11 +31,15 @@
   {{ article.content|safe  }}
 </div>
 
-<button id="like-btn"
-        data-slug="{{ article.slug }}"
-        class="btn btn-outline-primary btn-sm">
-  ❤️ Curtir (<span id="like-count">{{ article.likes.count }}</span>)
+{% csrf_token %}
+
+<button id="like-btn" data-slug="{{ article.slug }}">
+  ❤️ Curtir
 </button>
+
+<span id="like-count">
+  {{ article.likes.count }}
+</span>
 
 <!-- Fonte -->
 <p>
