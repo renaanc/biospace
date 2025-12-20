@@ -10,6 +10,27 @@ document.addEventListener("DOMContentLoaded", function () {
     console.warn("Token CSRF não encontrado.");
   }
 
+// BOTAO LIKE
+document.getElementById("like-btn").addEventListener("click", function () {
+  const slug = this.dataset.slug;
+
+  if (localStorage.getItem("liked-" + slug)) return;
+
+  fetch(`/like/${slug}/`, {
+    method: "POST",
+    headers: {
+      "X-CSRFToken": "{{ csrf_token }}",
+    },
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.liked) {
+      document.getElementById("like-count").innerText = data.likes_count;
+      localStorage.setItem("liked-" + slug, "true");
+    }
+  });
+});
+
   // Exemplo de requisição com fetch usando o CSRF token
 function postComCsrf(url, data) {
   return fetch(url, {
@@ -65,25 +86,3 @@ toggle.addEventListener("click", () => {
 });
 
 
-// BOTAO LIKE
-
-
-document.getElementById("like-btn").addEventListener("click", function () {
-  const slug = this.dataset.slug;
-
-  if (localStorage.getItem("liked-" + slug)) return;
-
-  fetch(`/like/${slug}/`, {
-    method: "POST",
-    headers: {
-      "X-CSRFToken": "{{ csrf_token }}",
-    },
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.liked) {
-      document.getElementById("like-count").innerText = data.likes_count;
-      localStorage.setItem("liked-" + slug, "true");
-    }
-  });
-});
