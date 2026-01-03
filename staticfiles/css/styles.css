@@ -374,45 +374,55 @@ a, p, span {
 }
 
 
+/* ==== REGRAS PARA CELULAR (MEDIA QUERY) - FINAL DO ARQUIVO ==== */
 @media (max-width: 768px) {
   :root {
-    --text-padding: 15px !important; 
+    --text-padding: 15px !important;
   }
 
-  /* Força o container a não vazar */
-  .wrapper, .content-text, .site-header, .site-footer {
-    width: 100% !important;
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
+  /* 1. CORREÇÃO DO HEADER (CORTADO) */
+  .site-header {
+    padding: 10px 0 !important;
   }
 
   .header-content {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: column !important; /* Logo em cima, menu embaixo */
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .site-header nav {
+    width: 100% !important;
+    justify-content: center !important;
   }
 
   .site-header nav ul {
-    margin: 10px 0;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* O LINK DA FONTE - A solução final */
-  .content-text a {
-    display: block !important;
-    word-break: break-all !important;
-    overflow-wrap: anywhere !important;
+    margin: 0 !important; /* Remove o margin-left: auto que empurra pra fora */
+    padding: 0 !important;
+    gap: 15px !important; /* Espaço menor entre links */
+    justify-content: center !important;
+    flex-wrap: wrap !important; /* Se não couber, pula linha */
     width: 100% !important;
   }
 
-  /* Coloque isso dentro da sua @media query no final do arquivo */
-.content-text a, 
-.content-text a.text-primary {
-    display: block !important; /* Block força ele a respeitar a largura do container */
-    word-break: break-all !important;
-    overflow-wrap: anywhere !important;
-    max-width: 100% !important;
-    white-space: normal !important;
-}
+  /* 2. CORREÇÃO DO LINK DA FONTE (QUEBRA TOTAL) */
+  .content-text a, 
+  .content-text a.text-primary {
+    display: block !important;
+    width: 100% !important;
+    max-width: calc(100vw - 30px) !important; /* Força o link a ser menor que a tela */
+    word-break: break-all !important; /* Quebra em qualquer letra */
+    overflow-wrap: anywhere !important; /* Força quebra em navegadores novos */
+    white-space: normal !important; /* Garante que ele PODE quebrar linha */
+    line-height: 1.4 !important;
+  }
+
+  /* 3. GARANTIA DE LARGURA DO SITE */
+  html, body, .wrapper {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    position: relative !important;
+  }
 }
