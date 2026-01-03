@@ -1,13 +1,13 @@
-/* ==== RESET GLOBAL SEGURO (SEM font: inherit EM LUGAR NENHUM) ==== */
+/* =========================================================
+   RESET GLOBAL SEGURO (SEM font: inherit)
+   ========================================================= */
 
-/* Garantir box-sizing consistente */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Base do documento */
 html {
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
@@ -15,19 +15,24 @@ html {
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: 'Segoe UI Emoji', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #ffffff;
+  color: #1e1e1e;
   text-rendering: optimizeLegibility;
-  background: #fff;
-  color: #000;
+  overflow-x: hidden;
 }
 
-/* Links básicos */
+/* Garantia semântica */
+em, i { font-style: italic; }
+strong, b { font-weight: 700; }
+
+/* Links */
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
-/* Mídias responsivas */
+/* Mídias */
 img,
 picture,
 video,
@@ -35,42 +40,28 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 /* Listas */
-ul,
-ol {
+ul, ol {
   padding-left: 1.25rem;
 }
 
 /* Tabelas */
 table {
-  border-collapse: collapse;
   width: 100%;
+  border-collapse: collapse;
 }
 
-/* Garantir itálico e negrito SEM depender de font: inherit */
-em,
-i {
-  font-style: italic !important;
-}
+/* =========================================================
+   FONTES
+   ========================================================= */
 
-strong,
-b {
-  font-weight: bold !important;
-}
-
-html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  position: relative;
-}
-/* ==== Fontes (restauradas) ==== */
 @font-face {
   font-family: 'Exo2-Bold';
   src: url('/static/font/Exo2-Bold.ttf') format('truetype');
   font-weight: 700;
-  font-style: normal;
   font-display: swap;
 }
 
@@ -78,60 +69,40 @@ html, body {
   font-family: 'Exo2-SemiBold';
   src: url('/static/font/Exo2-SemiBold.ttf') format('truetype');
   font-weight: 600;
-  font-style: normal;
   font-display: swap;
 }
 
-/* ==== Variáveis de Tema ==== */
+/* =========================================================
+   VARIÁVEIS DE TEMA
+   ========================================================= */
+
 :root {
-  --bg-color: #ffffff;
-  --text-color: #1e1e1e;
-  --accent-color: #005ea2;
+  --bg: #ffffff;
+  --text: #1e1e1e;
+  --accent: #005ea2;
   --accent-hover: #003f7f;
-  --header-bg: #212529;
-  --border-color: #ddd;
-  --hero-gradient-start: #eaf4ff;
-  --hero-gradient-end: #f4f9ff;
-  --feature-bg: #1e1e1e;
-  --feature-text: #f2f2f2;
+  --border: #dddddd;
+  --card-bg: #f5f5f5;
   --footer-bg: #000000;
-  --content-max-width: 100%;
-  --text-padding: clamp(10px, 3vw, 60px);
+
+  --hero-start: #eaf4ff;
+  --hero-end: #f4f9ff;
+
+  --padding: clamp(12px, 3vw, 48px);
 }
 
-/* HEADER MODO ESCURO */
-[data-theme="dark"] .site-header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  padding: 20px var(--text-padding);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  background-color: rgba(33,37,41,0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: background-color .3s ease, backdrop-filter .3s ease;
-}
+/* =========================================================
+   LAYOUT BASE
+   ========================================================= */
 
-/* Tipografia Base */
-body {
-  font-family: 'Segoe UI Emoji', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  line-height: 1.6;
-  min-height: 100vh;
-  text-rendering: optimizeLegibility;
-}
-
-/* Layout Principal */
 .wrapper {
   width: 100%;
-  max-width: 100vw; /* Garante que nunca passe da largura da tela */
-  padding: 0 15px;  /* No celular, 15px de cada lado é o padrão seguro */
+  max-width: 100%;
+  padding: 0 12px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 main {
@@ -139,97 +110,101 @@ main {
   padding: 2rem 0;
 }
 
-/* Cabeçalho */
+/* =========================================================
+   HEADER (BLUR CORRETO E CONTIDO)
+   ========================================================= */
+
 .site-header {
   position: sticky;
   top: 0;
+  z-index: 20;
   width: 100%;
-  z-index: 10;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+
+  overflow: hidden;
+  contain: layout paint;
+}
+
+/* Camada do blur (NÃO colocar blur direto no sticky) */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  background-color: rgba(255,255,255,0.7);
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+
+  z-index: -1;
+}
+
+/* Conteúdo acima do blur */
+.site-header > * {
+  position: relative;
+  z-index: 1;
 }
 
 .header-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /* NAV */
 .site-header nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
+  max-width: 100%;
 }
 
 .site-header nav ul {
   display: flex;
-  gap: 2rem;
-  margin-left: auto;
+  gap: 1.2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .site-header nav a {
-  color: var(--text-color);
   font-weight: 500;
-  transition: color .3s;
+  transition: color .25s ease;
 }
 
 .site-header nav a:hover {
-  color: var(--accent-color);
+  color: var(--accent);
 }
 
-  /* Faz o logo e o menu ficarem um embaixo do outro no celular */
-  .header-content {
-    flex-direction: column;
-    text-align: center;
-    padding: 10px;
-  }
+/* =========================================================
+   CONTEÚDO DO ARTIGO
+   ========================================================= */
 
-  /* Ajusta os links para não ocuparem tanto espaço */
-  .site-header nav ul {
-    margin: 10px 0 0 0; /* Remove o margin-left: auto que empurrava pra direita */
-    gap: 1rem;          /* Diminui o espaço entre os links */
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-  }
-  
-  /* Corrige o link da fonte que está vazando no final do texto */
-  .content-text a {
-    word-break: break-word;
-    display: inline-block;
-    max-width: 100%;
-  }
-
-/* Conteúdo */
 .content-text {
-  max-width: var(--content-max-width);
+  width: 100%;
+  max-width: 100%;
+  padding: 0 12px;
   margin: 2rem auto;
-  padding: 0 var(--text-padding);
+  box-sizing: border-box;
 }
 
 .content-text p {
-  text-align: justify;
-  margin: 0 0 1.8rem 0;
+  margin-bottom: 1.8rem;
   line-height: 1.8;
+  text-align: justify;
   hyphens: auto;
-  letter-spacing: 0.02em;
 }
 
 .content-text h2 {
   font-size: clamp(1.5rem, 4vw, 1.8rem);
   margin: 3rem 0 1.5rem;
-  color: var(--accent-color);
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--border-color);
-  line-height: 1.3;
+  color: var(--accent);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: .5rem;
 }
 
 .content-text h3 {
@@ -237,55 +212,60 @@ main {
   margin: 2.5rem 0 1.2rem;
 }
 
-.content-text strong {
-  font-weight: 600;
-  color: var(--accent-hover);
+/* Links longos (sem destruir layout) */
+.content-text a {
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
-/* Rodapé */
-.site-footer {
-  background-color: var(--footer-bg);
-  text-align: center;
-  padding: 40px var(--text-padding);
-  border-top: 1px solid var(--border-color);
-  margin-top: auto;
-  width: 100%;
+/* URLs puras */
+.content-text a[href^="http"] {
+  word-break: break-all;
 }
 
-/* Hero */
+/* Imagens no artigo */
+.content-text img {
+  margin: 1.5rem auto;
+  border-radius: 6px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
 .hero {
-  background: linear-gradient(to right, var(--hero-gradient-start), var(--hero-gradient-end));
+  background: linear-gradient(to right, var(--hero-start), var(--hero-end));
   padding: 4rem 2rem;
-  text-align: center;
   border-radius: 12px;
+  text-align: center;
   margin: 2rem auto;
 }
 
 .hero h2 {
   font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--accent-color);
-  margin-bottom: 1rem;
+  color: var(--accent);
 }
 
 .hero p {
-  font-size: 1.2rem;
   max-width: 600px;
-  margin: 0 auto 1.5rem;
+  margin: 1rem auto 0;
 }
 
-/* Article List */
+/* =========================================================
+   LISTA DE ARTIGOS
+   ========================================================= */
+
 .articles-list-section {
   padding: 3rem 1rem;
   display: flex;
   justify-content: center;
-  background: var(--bg);
 }
 
 .articles-list-container {
   width: 100%;
   max-width: 1100px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
@@ -293,7 +273,6 @@ main {
   background: var(--card-bg);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
   transition: transform .2s ease;
@@ -304,7 +283,6 @@ main {
 }
 
 .article-thumb {
-  width: 100%;
   height: 180px;
   overflow: hidden;
 }
@@ -315,102 +293,38 @@ main {
   object-fit: cover;
 }
 
-.article-content img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1.5rem auto;
-  border-radius: 6px;
-}
-
-/* Tema Claro */
-:root {
-  --bg: #ffffff;
-  --text: #1a1a1a;
-  --text-secondary: #555;
-  --card-bg: #f5f5f5;
-  --accent: #3f7fff;
-}
-
-/* Tema Escuro */
-html.dark {
-  --bg: #0f1117;
-  --text: #e4e4e4;
-  --text-secondary: #b5b5b5;
-  --card-bg: #1a1d26;
-  --accent: #5aa0ff;
-}
-
-.article-img {
-  height: 180px;
-  object-fit: cover;
-}
-
 .card-text {
+  padding: 1rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  line-clamp: 3;
+  line-clamp: 3;         /* padrão (futuro / compatibilidade) */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* Pequeno anti-reset e garantia de tipografia */
-* {
-  font-family: inherit;
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  background: var(--footer-bg);
+  color: #fff;
+  padding: 40px var(--padding);
+  text-align: center;
+  margin-top: auto;
 }
 
-html, body {
-  font-family: 'Segoe UI Emoji', 'Segoe UI', system-ui, -apple-system, sans-serif !important;
-}
+/* =========================================================
+   MOBILE AJUSTES FINAIS
+   ========================================================= */
 
-em, i { font-style: italic !important; }
-strong, b { font-weight: 700 !important; }
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
 
-/* ==== ÚLTIMA LINHA DO ARQUIVO - CORREÇÃO TOTAL ==== */
-@media screen and (max-width: 768px) {
-    /* Impede o corpo do site de ser maior que a tela */
-    html, body {
-        overflow-x: hidden !important;
-        width: 100vw !important;
-        position: relative;
-    }
-
-    /* Força o padding a ser pequeno */
-    :root {
-        --text-padding: 12px !important;
-    }
-
-    /* Corrige o Header cortado e empilhado */
-    .header-content {
-        flex-direction: column !important;
-        padding: 10px !important;
-        width: 100% !important;
-    }
-
-    .site-header nav ul {
-        margin: 10px 0 0 0 !important;
-        gap: 12px !important;
-        justify-content: center !important;
-        padding: 0 !important;
-        flex-wrap: wrap !important;
-    }
-
-    /* A SOLUÇÃO DEFINITIVA PARA O LINK */
-    .content-text a, .text-primary {
-        display: block !important;
-        width: 100% !important;
-        max-width: calc(100vw - 30px) !important; /* Força o link a ser menor que a tela */
-        word-break: break-all !important; /* Quebra em qualquer letra */
-        overflow-wrap: anywhere !important;
-        white-space: normal !important;
-        margin: 10px 0 !important;
-    }
-
-    /* Garante que o container de texto não vaze */
-    .content-text {
-        padding: 0 12px !important;
-        width: 100% !important;
-        max-width: 100vw !important;
-        box-sizing: border-box !important;
-    }
+  main {
+    padding-top: 1.5rem;
+  }
 }
