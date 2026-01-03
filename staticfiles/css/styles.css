@@ -389,3 +389,9 @@ a, p, span {
     display: inline-block;      /* Ajuda o navegador a calcular o limite da largura */
     max-width: 100%;            /* Não deixa o link ser maior que o container */
 }
+
+.content-text a.text-primary {
+    word-break: break-all !important;
+    display: inline-block !important;
+    max-width: 100% !important;
+}
