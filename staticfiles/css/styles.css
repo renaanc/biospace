@@ -60,6 +60,11 @@ b {
   font-weight: bold !important;
 }
 
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
 /* ==== Fontes (restauradas) ==== */
 @font-face {
   font-family: 'Exo2-Bold';
@@ -121,10 +126,12 @@ body {
 /* Layout Principal */
 .wrapper {
   width: 100%;
-  padding: 0 var(--text-padding);
+  max-width: 100vw; /* Garante que nunca passe da largura da tela */
+  padding: 0 15px;  /* No celular, 15px de cada lado é o padrão seguro */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 main {
@@ -372,4 +379,13 @@ a, p, span {
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
+}
+
+/* Alvo específico: links dentro de content-text que são muito longos */
+.content-text a {
+    word-wrap: break-word;       /* Força a quebra de palavras longas */
+    word-break: break-all;      /* Garante que quebre em qualquer caractere se necessário */
+    overflow-wrap: break-word;  /* Reforço para navegadores modernos */
+    display: inline-block;      /* Ajuda o navegador a calcular o limite da largura */
+    max-width: 100%;            /* Não deixa o link ser maior que o container */
 }
