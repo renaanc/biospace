@@ -28,44 +28,46 @@
 <header class="site-header py-3">
   <div class="container d-flex align-items-center justify-content-between flex-wrap">
     
-    <div class="d-flex align-items-center gap-2"> 
-      <a href="/" class="site-logo d-flex align-items-center">
-        <img src="{% static 'images/logo-placeholder.png' %}" alt="Biospace logo" class="logo-img logo-light" height="70">
-        <img src="{% static 'images/logo-placeholder-dark.png' %}" alt="Biospace logo" class="logo-img logo-dark" height="70">
+    <div class="d-flex align-items-center"> 
+      <a href="/" class="site-logo d-flex align-items-center text-decoration-none">
+        <img src="{% static 'images/logo-placeholder.png' %}" alt="Biospace logo" class="logo-img logo-light" height="60">
+        <img src="{% static 'images/logo-placeholder-dark.png' %}" alt="Biospace logo" class="logo-img logo-dark" height="60">
       </a>
     </div>
 
-    <nav class="d-flex align-items-center gap-2 gap-md-4 ms-auto">
-
-      <ul class="d-flex list-unstyled mb-0 gap-3 flex-wrap justify-content-end">
+    <nav class="d-flex align-items-center ms-auto">
+      <ul class="d-flex list-unstyled mb-0 gap-3 flex-wrap align-items-center">
         <li><a href="/" class="text-decoration-none">{% trans "Home" %}</a></li>
         <li><a href="/about" class="text-decoration-none">{% trans "About" %}</a></li>
         <li><a href="{% url 'articles:article_list' %}" class="text-decoration-none">{% trans "Articles" %}</a></li>
         <li><a href="/contact" class="text-decoration-none">{% trans "Contact" %}</a></li>
       </ul>
+    </nav>
 
-      <div class="d-flex align-items-center gap-2">
-        <form action="{% url 'set_language' %}" method="post" class="m-0">
+    <div class="d-flex align-items-center gap-2 ms-3">
+        <form action="{% url 'set_language' %}" method="post" class="m-0 d-flex align-items-center">
           {% csrf_token %}
           <input type="hidden" name="next" value="{{ request.get_full_path }}">
           {% if request.LANGUAGE_CODE == 'pt-br' or request.LANGUAGE_CODE == 'pt_BR' %}
             <input type="hidden" name="language" value="en">
-            <button type="submit" class="btn btn-outline-secondary btn-sm p-1">
-              <img src="{% static 'flags/united-states-flag-icon.svg' %}" width="28">
+            <button type="submit" class="btn btn-outline-secondary btn-sm d-flex align-items-center p-1">
+              <img src="{% static 'flags/united-states-flag-icon.svg' %}" width="24" height="18">
             </button>
           {% else %}
             <input type="hidden" name="language" value="pt-br">
-            <button type="submit" class="btn btn-outline-secondary btn-sm p-1">
-              <img src="{% static 'flags/brazil-flag-icon.svg' %}" width="28">
+            <button type="submit" class="btn btn-outline-secondary btn-sm d-flex align-items-center p-1">
+              <img src="{% static 'flags/brazil-flag-icon.svg' %}" width="24" height="18">
             </button>
           {% endif %}
         </form>
 
-        <button id="theme-toggle" class="btn btn-light btn-sm border">🌙</button>
-      </div>
-    </nav>
+        <button id="theme-toggle" class="btn btn-light btn-sm border d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+          🌙
+        </button>
+    </div>
 
-  </div> </header>
+  </div>
+</header>
 
 <main>
   {% block content %}{% endblock %}
