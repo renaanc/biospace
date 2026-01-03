@@ -20,20 +20,22 @@ def article_detail(request, slug):
 def like_article(request, slug):
     article = get_object_or_404(Article, slug=slug)
 
-    ip = request.META.get("REMOTE_ADDR")
+    # 1. Pega o IP real do visitante (essencial para o Render)
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0].strip()
+    else:
+        ip = request.META.get('REMOTE_ADDR')
 
+    # 2. Tenta criar o like. 
+    # Se já existir um like com esse IP e Artigo, 'created' será False.
     like, created = ArticleLike.objects.get_or_create(
         article=article,
         ip_address=ip
     )
 
-    if not created:
-        return JsonResponse({
-            "liked": False,
-            "likes_count": article.likes.count()
-        })
-
+    # 3. Retorna a resposta baseada se o like foi criado AGORA ou não
     return JsonResponse({
-        "liked": True,
+        "liked": created, 
         "likes_count": article.likes.count()
     })
