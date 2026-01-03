@@ -185,13 +185,6 @@ main {
   color: var(--accent-color);
 }
 
-/* Isso só vai rodar em telas menores que 768px */
-@media (max-width: 768px) {
-  /* Diminui o respiro lateral que estava empurrando o site para fora */
-  :root {
-    --text-padding: 15px; 
-  }
-
   /* Faz o logo e o menu ficarem um embaixo do outro no celular */
   .header-content {
     flex-direction: column;
@@ -214,7 +207,6 @@ main {
     display: inline-block;
     max-width: 100%;
   }
-}
 
 /* Conteúdo */
 .content-text {
@@ -381,17 +373,46 @@ a, p, span {
     word-break: break-word;
 }
 
-/* Alvo específico: links dentro de content-text que são muito longos */
-.content-text a {
-    word-wrap: break-word;       /* Força a quebra de palavras longas */
-    word-break: break-all;      /* Garante que quebre em qualquer caractere se necessário */
-    overflow-wrap: break-word;  /* Reforço para navegadores modernos */
-    display: inline-block;      /* Ajuda o navegador a calcular o limite da largura */
-    max-width: 100%;            /* Não deixa o link ser maior que o container */
-}
 
-.content-text a.text-primary {
+@media (max-width: 768px) {
+  :root {
+    --text-padding: 15px !important; 
+  }
+
+  /* Força o container a não vazar */
+  .wrapper, .content-text, .site-header, .site-footer {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .site-header nav ul {
+    margin: 10px 0;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* O LINK DA FONTE - A solução final */
+  .content-text a {
+    display: block !important;
     word-break: break-all !important;
-    display: inline-block !important;
+    overflow-wrap: anywhere !important;
+    width: 100% !important;
+  }
+
+  /* Coloque isso dentro da sua @media query no final do arquivo */
+.content-text a, 
+.content-text a.text-primary {
+    display: block !important; /* Block força ele a respeitar a largura do container */
+    word-break: break-all !important;
+    overflow-wrap: anywhere !important;
     max-width: 100% !important;
+    white-space: normal !important;
+}
 }
