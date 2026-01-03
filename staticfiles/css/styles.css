@@ -180,29 +180,32 @@ main {
   color: var(--accent);
 }
 
-/* Remove comportamentos que empilham os itens */
+/* Força a Header a manter todos os filhos em uma linha no desktop */
 .site-header .container {
-    min-height: 80px; /* Garante uma altura consistente */
-    display: flex !important;
-    flex-direction: row !important; /* Força ficar um ao lado do outro */
-    flex-wrap: nowrap !important; /* Impede de pular linha no desktop */
-}
-
-.site-header nav ul {
-    margin: 0;
-    padding: 0;
     display: flex !important;
     flex-direction: row !important;
-    align-items: center;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
 }
 
-/* Garante que os botões e forms não tenham margens fantasmas */
-.site-header form, 
-.site-header .btn {
-    display: flex;
+/* Remove a largura total da NAV que estava empurrando os ícones para baixo */
+.site-header nav {
+    width: auto !important;
+    max-width: none !important;
+}
+
+/* Garante que a lista de links não quebre linha no desktop */
+.site-header nav ul {
+    display: flex !important;
+    flex-direction: row !important;
+    white-space: nowrap;
+}
+
+/* Ajuste para o formulário de idioma não criar margens extras */
+.site-header form {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    margin: 0 !important;
 }
 
 /* =========================================================
