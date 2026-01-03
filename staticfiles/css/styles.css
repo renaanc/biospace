@@ -180,6 +180,31 @@ main {
   color: var(--accent);
 }
 
+/* Remove comportamentos que empilham os itens */
+.site-header .container {
+    min-height: 80px; /* Garante uma altura consistente */
+    display: flex !important;
+    flex-direction: row !important; /* Força ficar um ao lado do outro */
+    flex-wrap: nowrap !important; /* Impede de pular linha no desktop */
+}
+
+.site-header nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+}
+
+/* Garante que os botões e forms não tenham margens fantasmas */
+.site-header form, 
+.site-header .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+}
+
 /* =========================================================
    CONTEÚDO DO ARTIGO
    ========================================================= */
