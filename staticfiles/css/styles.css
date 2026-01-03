@@ -138,7 +138,7 @@ main {
   top: 0;
   width: 100%;
   z-index: 10;
-  padding: 20px var(--text-padding);
+  padding: 20px 0;
   border-bottom: 1px solid rgba(255,255,255,0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -176,6 +176,37 @@ main {
 
 .site-header nav a:hover {
   color: var(--accent-color);
+}
+
+/* Isso só vai rodar em telas menores que 768px */
+@media (max-width: 768px) {
+  /* Diminui o respiro lateral que estava empurrando o site para fora */
+  :root {
+    --text-padding: 15px; 
+  }
+
+  /* Faz o logo e o menu ficarem um embaixo do outro no celular */
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* Ajusta os links para não ocuparem tanto espaço */
+  .site-header nav ul {
+    margin: 10px 0 0 0; /* Remove o margin-left: auto que empurrava pra direita */
+    gap: 1rem;          /* Diminui o espaço entre os links */
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+  }
+  
+  /* Corrige o link da fonte que está vazando no final do texto */
+  .content-text a {
+    word-break: break-word;
+    display: inline-block;
+    max-width: 100%;
+  }
 }
 
 /* Conteúdo */
@@ -335,3 +366,10 @@ html, body {
 
 em, i { font-style: italic !important; }
 strong, b { font-weight: 700 !important; }
+
+/* Isso garante que links ou textos gigantes não estourem a tela */
+a, p, span {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
