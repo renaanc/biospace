@@ -208,6 +208,29 @@ main {
     align-items: center;
 }
 
+/* Garante que o container não quebre a linha no desktop */
+.site-header .container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center;
+}
+
+/* Faz com que o lado da logo e o lado dos botões ocupem o mesmo espaço disponível, 
+   empurrando a nav para o centro exato */
+.flex-grow-1 {
+    flex-basis: 0;
+}
+
+/* Ajuste para que a Nav não seja espremida no centro */
+.site-header nav {
+    flex-shrink: 0;
+}
+
+/* Garante que os links fiquem em uma linha só */
+.site-header nav ul {
+    white-space: nowrap;
+}
+
 /* =========================================================
    CONTEÚDO DO ARTIGO
    ========================================================= */
