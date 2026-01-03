@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'compressor',
     'whitenoise.runserver_nostatic',
     'ckeditor',
-    'ckeditor_uploader','analytical',  
+    'ckeditor_uploader','analytical',
+    'django_mobile',  
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_mobile.middleware.MobileDetectionMiddleware',
+    'django_mobile.middleware.SetFlavourMiddleware',
 ]
 
 ROOT_URLCONF = 'biospace_site.urls'

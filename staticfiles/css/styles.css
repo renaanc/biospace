@@ -370,6 +370,38 @@ main {
    MOBILE AJUSTES FINAIS
    ========================================================= */
 
+
+
+   /* Começa tudo escondido */
+.mobile-sidebar,
+.menu-toggle {
+  display: none;
+}
+
+/* MOBILE */
+@media (max-width: 991px) {
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1001;
+  }
+
+  .mobile-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;
+    background: #0b0f19;
+    padding: 4rem 1rem;
+    z-index: 1000;
+  }
+}
+
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
