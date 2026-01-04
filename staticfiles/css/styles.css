@@ -136,3 +136,27 @@ body.dark {
     padding-bottom: 80px;
   }
 }
+
+/* ===============================
+   CONTROLE DESKTOP vs MOBILE
+   =============================== */
+
+/* Desktop padrão */
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+}
