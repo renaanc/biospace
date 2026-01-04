@@ -25,11 +25,9 @@
 
   <body>
 
-{% if request.mobile %}
-  {% include "core/components/sidebar_mobile.html" %}
-{% else %}
-  {% include "core/components/header_desktop.html" %}
-{% endif %}
+{% include "core/components/header_desktop.html" %}
+{% include "core/components/sidebar_mobile.html" %}
+
 
 <main>
   {% block content %}{% endblock %}
