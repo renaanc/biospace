@@ -438,3 +438,49 @@ main, header, footer, .container {
   font-style: normal;
   font-display: swap;
 }
+
+/* ===== DESKTOP PADRÃO ===== */
+.header-desktop {
+  display: block;
+}
+
+.sidebar-mobile {
+  display: none;
+}
+
+@media (max-width: 991px) {
+
+  .header-desktop {
+    display: none;
+  }
+
+  .sidebar-mobile {
+    display: flex;
+  }
+
+  /* evita conteúdo atrás da barra */
+  main {
+    padding-bottom: 80px;
+  }
+}
+
+.sidebar-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background: #0b0d17;
+  z-index: 1000;
+}
+
+.sidebar-mobile a {
+  color: #fff;
+  font-size: 0.85rem;
+  text-align: center;
+}
