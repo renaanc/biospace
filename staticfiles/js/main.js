@@ -1,28 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Biospace carregado com sucesso 🚀");
 
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== "") {
+      const cookies = document.cookie.split(";");
+      for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith(name + "=")) {
+          cookieValue = decodeURIComponent(cookie.slice(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  // =====================
+  // LIKE BUTTON
+  // =====================
+  const likeBtn = document.getElementById("like-btn");
 
-    // CSRF token
-  const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
-  if (csrfToken) {
-    console.log("CSRF token carregado:", csrfToken);
-  } else {
-    console.warn("Token CSRF não encontrado.");
+  if (likeBtn) {
+    console.log("Like button encontrado ✅");
+
+    const likeUrl = likeBtn.dataset.likeUrl;
+    const csrfToken = getCookie("csrftoken");
+
+    likeBtn.addEventListener("click", () => {
+      console.log("Clique no like");
+
+      fetch(likeUrl, {
+        method: "POST",
+        headers: {
+          "X-CSRFToken": csrfToken,
+        },
+        credentials: "include",
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log("Resposta do servidor:", data);
+          document.getElementById("like-count").innerText = data.likes_count;
+        });
+    });
   }
 
-  // Exemplo de requisição com fetch usando o CSRF token
-function postComCsrf(url, data) {
-  return fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-CSRFToken": csrfToken, // Envia o token CSRF no cabeçalho
-    },
-    body: JSON.stringify(data),
-  });
-}
-
-  // Exemplo: efeito de scroll suave para âncoras
+  // =====================
+  // SCROLL SUAVE
+  // =====================
   const links = document.querySelectorAll('a[href^="#"]');
   links.forEach((link) => {
     link.addEventListener("click", function (e) {
@@ -34,7 +58,9 @@ function postComCsrf(url, data) {
     });
   });
 
-  // Exemplo: destaque no menu ativo
+  // =====================
+  // MENU ATIVO
+  // =====================
   const currentUrl = window.location.pathname;
   const navLinks = document.querySelectorAll(".site-nav a");
 
@@ -45,42 +71,26 @@ function postComCsrf(url, data) {
   });
 });
 
-// Theme toggle
+// =====================
+// THEME TOGGLE (fora do DOMContentLoaded)
+// =====================
 const toggle = document.getElementById("theme-toggle");
-const currentTheme = localStorage.getItem("theme");
 
-if (currentTheme) {
-  document.documentElement.setAttribute("data-theme", currentTheme);
-  toggle.textContent = currentTheme === "dark" ? "☀️" : "🌙";
-}
+if (toggle) {
+  const currentTheme = localStorage.getItem("theme");
 
-toggle.addEventListener("click", () => {
-  let theme =
-    document.documentElement.getAttribute("data-theme") === "dark"
-      ? "light"
-      : "dark";
-  document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
-  toggle.textContent = theme === "dark" ? "☀️" : "🌙";
-});
+  if (currentTheme) {
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    toggle.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+  }
 
-document.getElementById("like-btn").addEventListener("click", function () {
-  const slug = this.dataset.slug;
-
-  if (localStorage.getItem("liked-" + slug)) return;
-
-  fetch(`/like/${slug}/`, {
-    method: "POST",
-    headers: {
-      "X-CSRFToken": "{{ csrf_token }}",
-    },
-  })
-  .then(res => res.json())
-  .then(data => {
-    if (data.liked) {
-      document.getElementById("like-count").innerText = data.likes_count;
-      localStorage.setItem("liked-" + slug, "true");
-    }
+  toggle.addEventListener("click", () => {
+    let theme =
+      document.documentElement.getAttribute("data-theme") === "dark"
+        ? "light"
+        : "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    toggle.textContent = theme === "dark" ? "☀️" : "🌙";
   });
-});
-
+}
