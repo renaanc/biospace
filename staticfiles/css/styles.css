@@ -1,406 +1,138 @@
 /* =========================================================
-   RESET GLOBAL SEGURO (SEM font: inherit)
+   RESET GLOBAL SEGURO
    ========================================================= */
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html {
-  line-height: 1.5;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
+html, body {
   margin: 0;
-  font-family: 'Segoe UI Emoji', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-color: #ffffff;
-  color: #1e1e1e;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-}
-
-/* Garantia semântica */
-em, i { font-style: italic; }
-strong, b { font-weight: 700; }
-
-/* Links */
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Mídias */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
+  padding: 0;
   max-width: 100%;
-  height: auto;
-}
-
-/* Listas */
-ul, ol {
-  padding-left: 1.25rem;
-}
-
-/* Tabelas */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-/* =========================================================
-   FONTES
-   ========================================================= */
-
-@font-face {
-  font-family: 'Exo2-Bold';
-  src: url('/static/font/Exo2-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Exo2-SemiBold';
-  src: url('/static/font/Exo2-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-display: swap;
-}
-
-/* =========================================================
-   VARIÁVEIS DE TEMA
-   ========================================================= */
-
-:root {
-  --bg: #ffffff;
-  --text: #1e1e1e;
-  --accent: #005ea2;
-  --accent-hover: #003f7f;
-  --border: #dddddd;
-  --card-bg: #f5f5f5;
-  --footer-bg: #000000;
-
-  --hero-start: #eaf4ff;
-  --hero-end: #f4f9ff;
-
-  --padding: clamp(12px, 3vw, 48px);
-}
-
-/* =========================================================
-   LAYOUT BASE
-   ========================================================= */
-
-.wrapper {
-  width: 100%;
-  max-width: 100%;
-  padding: 0 12px;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   overflow-x: clip;
 }
 
-main {
-  flex: 1;
-  padding: 2rem 0;
-}
-
-/* =========================================================
-   HEADER (BLUR CORRETO E CONTIDO)
-   ========================================================= */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  width: 100%;
-
-  overflow: hidden;
-  contain: layout paint;
-}
-
-/* Camada do blur (NÃO colocar blur direto no sticky) */
-.site-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-color: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  z-index: -1;
-}
-
-/* Conteúdo acima do blur */
-.site-header > * {
-  position: relative;
-  z-index: 1;
-}
-
-.header-content {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-/* NAV */
-.site-header nav {
-  width: 100%;
+img {
   max-width: 100%;
-  padding: 0 50px;
+  height: auto;
+  display: block;
 }
 
-.site-header nav ul {
-  display: flex;
-  gap: 1.2rem;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.site-header nav a {
-  font-weight: 500;
-  transition: color .25s ease;
-}
-
-.site-header nav a:hover {
-  color: var(--accent);
-}
-
-/* Força a Header a manter todos os filhos em uma linha no desktop */
-.site-header .container {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-}
-
-/* Remove a largura total da NAV que estava empurrando os ícones para baixo */
-.site-header nav {
-    width: auto !important;
-    max-width: none !important;
-}
-
-/* Garante que a lista de links não quebre linha no desktop */
-.site-header nav ul {
-    display: flex !important;
-    flex-direction: row !important;
-    white-space: nowrap;
-}
-
-/* Ajuste para o formulário de idioma não criar margens extras */
-.site-header form {
-    display: inline-flex;
-    align-items: center;
-}
-
-/* Garante que o container não quebre a linha no desktop */
-.site-header .container {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    align-items: center;
-}
-
-/* Faz com que o lado da logo e o lado dos botões ocupem o mesmo espaço disponível, 
-   empurrando a nav para o centro exato */
-.flex-grow-1 {
-    flex-basis: 0;
-}
-
-/* Ajuste para que a Nav não seja espremida no centro */
-.site-header nav {
-    flex-shrink: 0;
-}
-
-/* Garante que os links fiquem em uma linha só */
-.site-header nav ul {
-    white-space: nowrap;
 }
 
 /* =========================================================
-   CONTEÚDO DO ARTIGO
+   VARIÁVEIS
    ========================================================= */
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #0e0e11;
+  --text-light: #111;
+  --text-dark: #f5f5f5;
+}
 
-.content-text {
+/* =========================================================
+   BASE
+   ========================================================= */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+main {
   width: 100%;
-  max-width: 100%;
-  padding: 0 12px;
-  margin: 2rem auto;
-  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+.site-header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.site-header nav ul {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.logo-img {
+  height: 70px;
+  width: auto;
+}
+
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+.content-text {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
 .content-text p {
-  margin-bottom: 1.8rem;
-  line-height: 1.8;
-  text-align: justify;
-  hyphens: auto;
-}
-
-.content-text h2 {
-  font-size: clamp(1.5rem, 4vw, 1.8rem);
-  margin: 3rem 0 1.5rem;
-  color: var(--accent);
-  border-bottom: 2px solid var(--border);
-  padding-bottom: .5rem;
-}
-
-.content-text h3 {
-  font-size: clamp(1.3rem, 3.5vw, 1.5rem);
-  margin: 2.5rem 0 1.2rem;
-}
-
-/* Links longos (sem destruir layout) */
-.content-text a {
-  overflow-wrap: break-word;
-  word-break: normal;
-}
-
-/* URLs puras */
-.content-text a[href^="http"] {
-  word-break: break-all;
-}
-
-/* Imagens no artigo */
-.content-text img {
-  margin: 1.5rem auto;
-  border-radius: 6px;
+  margin-bottom: 1.2rem;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 /* =========================================================
-   HERO
+   DARK MODE (se você usa)
    ========================================================= */
-
-.hero {
-  background: linear-gradient(to right, var(--hero-start), var(--hero-end));
-  padding: 4rem 2rem;
-  border-radius: 12px;
-  text-align: center;
-  margin: 2rem auto;
-}
-
-.hero h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--accent);
-}
-
-.hero p {
-  max-width: 600px;
-  margin: 1rem auto 0;
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
 }
 
 /* =========================================================
-   LISTA DE ARTIGOS
+   MOBILE
    ========================================================= */
-
-.articles-list-section {
-  padding: 3rem 1rem;
-  display: flex;
-  justify-content: center;
-}
-
-.articles-list-container {
-  width: 100%;
-  max-width: 1100px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.article-item {
-  background: var(--card-bg);
-  border-radius: 14px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform .2s ease;
-}
-
-.article-item:hover {
-  transform: translateY(-4px);
-}
-
-.article-thumb {
-  height: 180px;
-  overflow: hidden;
-}
-
-.article-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-text {
-  padding: 1rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-    line-clamp: 3;         /* padrão (futuro / compatibilidade) */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-.site-footer {
-  background: var(--footer-bg);
-  color: #fff;
-  padding: 40px var(--padding);
-  text-align: center;
-  margin-top: auto;
-}
-
-/* =========================================================
-   MOBILE AJUSTES FINAIS
-   ========================================================= */
-
-/* Desktop */
-@media (min-width: 992px) {
-  .header-desktop {
-    display: block;
-  }
-
-  .sidebar-mobile {
-    display: none;
-  }
-}
-
-/* Mobile */
 @media (max-width: 991px) {
-  .header-desktop {
-    display: none;
+
+  /* Header */
+  .site-header nav {
+    padding: 0 12px;
+    flex-wrap: wrap;
   }
 
-  .sidebar-mobile {
-    display: block;
+  .site-header nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Texto */
+  .content-text {
+    padding: 0 14px;
+  }
+
+  .content-text p {
+    text-align: left;
+  }
+
+  /* Espaço extra p/ elementos fixos */
+  main {
+    padding-bottom: 80px;
   }
 }
-
-.sidebar-mobile {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 64px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: #0b0d17;
-  z-index: 1000;
-}
-
