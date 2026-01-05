@@ -439,6 +439,33 @@ main, header, footer, .container {
   font-display: swap;
 }
 
+
+.mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 16px;
+  width: 100%;
+
+  position: relative;
+  z-index: 1200;
+}
+
+.mobile-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-actions button {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: inherit;
+}
+
 /* ===== VISIBILIDADE POR DISPOSITIVO ===== */
 
 /* mobile first */
@@ -498,6 +525,7 @@ main, header, footer, .container {
   position: fixed;
   top: 0;
   right: -100%;
+  left: auto;
   width: 75%;
   height: 100vh;
   background: #111;

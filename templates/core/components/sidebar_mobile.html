@@ -1,9 +1,7 @@
-{% load static %}
-{% load i18n %}
-
 <div class="mobile-only">
 
-  <div class="mobile-top">
+  <header class="mobile-header">
+
     <!-- LOGO -->
     <a href="/" class="site-logo">
       <img src="{% static 'images/logo-placeholder.png' %}" class="logo-img logo-light">
@@ -12,23 +10,26 @@
 
     <!-- AÇÕES -->
     <div class="mobile-actions">
-      <!-- TEMA -->
-      <button id="theme-toggle">🌙</button>
+      <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
 
-      <!-- IDIOMA -->
-      <form action="{% url 'set_language' %}" method="post">
+      <!-- IDIOMA (UM BOTÃO SÓ) -->
+      <form action="{% url 'set_language' %}" method="post" class="language-form">
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ request.path }}">
-        <button name="language" value="en">🇺🇸</button>
-        <button name="language" value="pt-br">🇧🇷</button>
+
+        {% if LANGUAGE_CODE == 'pt-br' %}
+          <button name="language" value="en">🇺🇸</button>
+        {% else %}
+          <button name="language" value="pt-br">🇧🇷</button>
+        {% endif %}
       </form>
+
+      <!-- MENU -->
+      <button class="menu-toggle" aria-label="Abrir menu">☰</button>
     </div>
 
-    <!-- MENU BUTTON -->
-    <button class="menu-toggle" aria-label="Abrir menu">☰</button>
-  </div> <!-- 🔴 FECHA mobile-top -->
+  </header>
 
-  <!-- SIDEBAR -->
   <nav class="mobile-sidebar">
     <a href="/">Início</a>
     <a href="/articles/">Artigos</a>
@@ -36,4 +37,4 @@
     <a href="/contact/">Contato</a>
   </nav>
 
-</div> <!-- 🔴 FECHA mobile-only -->
+</div>

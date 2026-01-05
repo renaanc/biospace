@@ -95,6 +95,22 @@ if (toggle) {
   });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const themeBtn = document.getElementById("theme-toggle");
+
+  if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+      const html = document.documentElement;
+      const theme = html.getAttribute("data-theme");
+
+      html.setAttribute(
+        "data-theme",
+        theme === "dark" ? "light" : "dark"
+      );
+    });
+  }
+});
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.querySelector(".menu-toggle");
