@@ -98,14 +98,15 @@ if (toggle) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.querySelector(".menu-toggle");
-  const menu = document.querySelector(".mobile-menu");
+  const sidebar = document.querySelector(".mobile-sidebar");
 
-  if (!toggle || !menu) return;
+  if (!toggle || !sidebar) return;
 
   toggle.addEventListener("click", () => {
-    menu.classList.toggle("open");
+    sidebar.classList.toggle("active");
   });
 });
+
 
 sidebar.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {

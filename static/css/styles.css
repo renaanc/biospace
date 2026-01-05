@@ -439,30 +439,60 @@ main, header, footer, .container {
   font-display: swap;
 }
 
-/* ===== DESKTOP PADRÃO ===== */
-.header-desktop {
-  display: block;
-}
+/* ===== VISIBILIDADE POR DISPOSITIVO ===== */
 
-.sidebar-mobile {
+/* mobile first */
+.desktop-only {
   display: none;
 }
 
-@media (max-width: 991px) {
+.mobile-only {
+  display: block;
+}
 
-  .header-desktop {
+/* desktop */
+@media (min-width: 768px) {
+  .desktop-only {
+    display: block;
+  }
+
+  .mobile-only {
     display: none;
   }
-
-  .sidebar-mobile {
-    display: flex;
-  }
-
-  /* evita conteúdo atrás da barra */
-  main {
-    padding-bottom: 80px;
-  }
 }
+
+/* ===== HEADER MOBILE ===== */
+
+.mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 16px;
+  width: 100%;
+
+  position: relative;
+  z-index: 1200;
+}
+
+.mobile-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+
+  color: inherit;
+  user-select: none;
+  z-index: 1300;
+}
+
+/* ===== SIDEBAR ===== */
 
 .mobile-sidebar {
   position: fixed;
@@ -471,46 +501,17 @@ main, header, footer, .container {
   width: 75%;
   height: 100vh;
   background: #111;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  padding: 2rem;
   transition: right 0.3s ease;
-  z-index: 1000;
+  z-index: 1100;
 }
 
-/* quando ativa */
 .mobile-sidebar.active {
   right: 0;
 }
 
-/* Oculta a classe .desktop-only por padrão (para mobile first) */
-.desktop-only {
-    display: none;
-}
-
-/* Exibe a classe .desktop-only apenas em telas maiores que 768px (tablets e desktops) */
-@media (min-width: 768px) {
-    .desktop-only {
-        display: block; /* Ou display: flex; ou inline-block;, dependendo do elemento original */
-    }
-}
-
-/* Exibe a classe .mobile-only por padrão (para mobile first) */
-.mobile-only {
-    display: block;
-}
-
-/* Oculta a classe .mobile-only em telas maiores que 768px (tablets e desktops) */
-@media (min-width: 768px) {
-    .mobile-only {
-        display: none;
-    }
-}
-
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.mobile-menu.open {
-  display: flex;
-}
