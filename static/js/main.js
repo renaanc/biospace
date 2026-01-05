@@ -105,3 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.classList.toggle("open");
   });
 });
+
+sidebar.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+  });
+});
