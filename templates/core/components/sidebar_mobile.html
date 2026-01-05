@@ -1,7 +1,9 @@
+{% load static %}
+{% load i18n %}
+
 <div class="mobile-only">
 
-  <header class="mobile-header">
-
+  <div class="mobile-top">
     <!-- LOGO -->
     <a href="/" class="site-logo">
       <img src="{% static 'images/logo-placeholder.png' %}" class="logo-img logo-light">
@@ -30,6 +32,7 @@
 
   </header>
 
+  <!-- SIDEBAR -->
   <nav class="mobile-sidebar">
     <a href="/">Início</a>
     <a href="/articles/">Artigos</a>
@@ -37,4 +40,4 @@
     <a href="/contact/">Contato</a>
   </nav>
 
-</div>
+</div> <!-- 🔴 FECHA mobile-only -->
