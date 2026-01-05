@@ -3,6 +3,28 @@
 
 <div class="mobile-only">
 
+  <div class="mobile-top">
+    <!-- LOGO -->
+    <a href="/" class="site-logo">
+      <img src="{% static 'images/logo-placeholder.png' %}" class="logo-img logo-light">
+      <img src="{% static 'images/logo-placeholder-dark.png' %}" class="logo-img logo-dark">
+    </a>
+
+    <!-- AÇÕES -->
+    <div class="mobile-actions">
+      <!-- TEMA -->
+      <button id="theme-toggle">🌙</button>
+
+      <!-- IDIOMA -->
+      <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.path }}">
+        <button name="language" value="en">🇺🇸</button>
+        <button name="language" value="pt-br">🇧🇷</button>
+      </form>
+    </div>
+
+    
 <button class="menu-toggle" aria-label="Abrir menu">☰</button>
 
 <nav class="mobile-sidebar">
