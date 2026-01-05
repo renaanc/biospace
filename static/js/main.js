@@ -94,3 +94,14 @@ if (toggle) {
     toggle.textContent = theme === "dark" ? "☀️" : "🌙";
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".mobile-menu");
+
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("open");
+  });
+});
