@@ -484,3 +484,27 @@ main, header, footer, .container {
   font-size: 0.85rem;
   text-align: center;
 }
+
+/* Oculta a classe .desktop-only por padrão (para mobile first) */
+.desktop-only {
+    display: none;
+}
+
+/* Exibe a classe .desktop-only apenas em telas maiores que 768px (tablets e desktops) */
+@media (min-width: 768px) {
+    .desktop-only {
+        display: block; /* Ou display: flex; ou inline-block;, dependendo do elemento original */
+    }
+}
+
+/* Exibe a classe .mobile-only por padrão (para mobile first) */
+.mobile-only {
+    display: block;
+}
+
+/* Oculta a classe .mobile-only em telas maiores que 768px (tablets e desktops) */
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
+}
