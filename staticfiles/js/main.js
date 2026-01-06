@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Biospace carregado com sucesso 🚀");
 
+  /* =====================
+     COOKIE (CSRF)
+     ===================== */
   function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== "") {
@@ -15,72 +18,58 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     return cookieValue;
   }
-  // =====================
-  // LIKE BUTTON
-  // =====================
+
+  /* =====================
+     LIKE BUTTON
+     ===================== */
   const likeBtn = document.getElementById("like-btn");
 
   if (likeBtn) {
-    console.log("Like button encontrado ✅");
-
     const likeUrl = likeBtn.dataset.likeUrl;
     const csrfToken = getCookie("csrftoken");
 
     likeBtn.addEventListener("click", () => {
-      console.log("Clique no like");
-
       fetch(likeUrl, {
         method: "POST",
-        headers: {
-          "X-CSRFToken": csrfToken,
-        },
+        headers: { "X-CSRFToken": csrfToken },
         credentials: "include",
       })
         .then(res => res.json())
         .then(data => {
-          console.log("Resposta do servidor:", data);
           document.getElementById("like-count").innerText = data.likes_count;
         });
     });
   }
 
-  // =====================
-  // SCROLL SUAVE
-  // =====================
-  const links = document.querySelectorAll('a[href^="#"]');
-  links.forEach((link) => {
-    link.addEventListener("click", function (e) {
+  /* =====================
+     SCROLL SUAVE
+     ===================== */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", e => {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
+      const target = document.querySelector(link.getAttribute("href"));
       if (target) {
         target.scrollIntoView({ behavior: "smooth" });
       }
     });
   });
 
-  // =====================
-  // MENU ATIVO
-  // =====================
+  /* =====================
+     MENU ATIVO (DESKTOP)
+     ===================== */
   const currentUrl = window.location.pathname;
-  const navLinks = document.querySelectorAll(".site-nav a");
-
-  navLinks.forEach((link) => {
+  document.querySelectorAll(".site-nav a").forEach(link => {
     if (link.getAttribute("href") === currentUrl) {
       link.classList.add("active");
     }
   });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
 
   /* =====================
      THEME TOGGLE (GLOBAL)
      ===================== */
-
   const themeButtons = document.querySelectorAll("#theme-toggle");
   const html = document.documentElement;
 
-  // aplica tema salvo
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme) {
     html.setAttribute("data-theme", savedTheme);
@@ -95,41 +84,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   themeButtons.forEach(button => {
     button.addEventListener("click", () => {
-      const currentTheme = html.getAttribute("data-theme") === "dark"
-        ? "light"
-        : "dark";
+      const newTheme =
+        html.getAttribute("data-theme") === "dark" ? "light" : "dark";
 
-      html.setAttribute("data-theme", currentTheme);
-      localStorage.setItem("theme", currentTheme);
-      updateThemeIcon(currentTheme);
+      html.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+      updateThemeIcon(newTheme);
     });
   });
 
-
-
-/* =====================
-   MOBILE SIDEBAR
-   ===================== */
-
-document.addEventListener("DOMContentLoaded", () => {
+  /* =====================
+     MOBILE SIDEBAR ✅
+     ===================== */
   const menuToggle = document.querySelector(".menu-toggle");
   const sidebar = document.querySelector(".mobile-sidebar");
 
-  if (!menuToggle || !sidebar) {
-    console.warn("Menu toggle ou sidebar não encontrados");
-    return;
-  }
-
-  menuToggle.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-  });
-
-  sidebar.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      sidebar.classList.remove("active");
+  if (menuToggle && sidebar) {
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
     });
-  });
-});
 
-
+    sidebar.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+      });
+    });
+  } else {
+    console.warn("Sidebar mobile ou botão não encontrados");
+  }
 });
