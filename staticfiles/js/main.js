@@ -109,19 +109,31 @@ document.addEventListener("DOMContentLoaded", () => {
      MOBILE SIDEBAR
      ===================== */
 
-  const menuToggle = document.querySelector(".menu-toggle");
-  const sidebar = document.querySelector(".mobile-sidebar");
+/* =====================
+   MOBILE SIDEBAR
+   ===================== */
 
-  if (menuToggle && sidebar) {
-    menuToggle.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-    });
+const menuToggle = document.querySelector(".menu-toggle");
+const sidebar = document.querySelector(".mobile-sidebar");
+const overlay = document.querySelector(".sidebar-overlay");
 
-    sidebar.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-      });
+if (menuToggle && sidebar && overlay) {
+  menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+  sidebar.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      sidebar.classList.remove("active");
+      overlay.classList.remove("active");
     });
-  }
+  });
+}
 
 });
