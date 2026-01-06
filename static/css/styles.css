@@ -524,10 +524,10 @@ main, header, footer, .container {
   top: 0;
   right: -100%;   /* começa fora da tela à direita */
   left: auto;     /* GARANTE que não use left */
-  width: 70%;
+  width: 50%;
   max-width: 280px;
   height: 100vh;
-  background: #6fa9c4;
+  background: #9bd8f5;
   transition: right 0.3s ease;
   z-index: 1000;
 
