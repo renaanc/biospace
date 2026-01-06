@@ -105,35 +105,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* =====================
-     MOBILE SIDEBAR
-     ===================== */
+
 
 /* =====================
    MOBILE SIDEBAR
    ===================== */
 
-const menuToggle = document.querySelector(".menu-toggle");
-const sidebar = document.querySelector(".mobile-sidebar");
-const overlay = document.querySelector(".sidebar-overlay");
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const sidebar = document.querySelector(".mobile-sidebar");
 
-if (menuToggle && sidebar && overlay) {
+  if (!menuToggle || !sidebar) {
+    console.warn("Menu toggle ou sidebar não encontrados");
+    return;
+  }
+
   menuToggle.addEventListener("click", () => {
     sidebar.classList.toggle("active");
-    overlay.classList.toggle("active");
-  });
-
-  overlay.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-    overlay.classList.remove("active");
   });
 
   sidebar.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       sidebar.classList.remove("active");
-      overlay.classList.remove("active");
     });
   });
-}
+});
+
 
 });
