@@ -71,61 +71,57 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// =====================
-// THEME TOGGLE (fora do DOMContentLoaded)
-// =====================
-const toggle = document.getElementById("theme-toggle");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (toggle) {
-  const currentTheme = localStorage.getItem("theme");
+  /* =====================
+     THEME TOGGLE (GLOBAL)
+     ===================== */
 
-  if (currentTheme) {
-    document.documentElement.setAttribute("data-theme", currentTheme);
-    toggle.textContent = currentTheme === "dark" ? "☀️" : "🌙";
+  const themeButtons = document.querySelectorAll("#theme-toggle");
+  const html = document.documentElement;
+
+  // aplica tema salvo
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    html.setAttribute("data-theme", savedTheme);
+    updateThemeIcon(savedTheme);
   }
 
-  toggle.addEventListener("click", () => {
-    let theme =
-      document.documentElement.getAttribute("data-theme") === "dark"
-        ? "light"
-        : "dark";
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-    toggle.textContent = theme === "dark" ? "☀️" : "🌙";
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const themeBtn = document.getElementById("theme-toggle");
-
-  if (themeBtn) {
-    themeBtn.addEventListener("click", () => {
-      const html = document.documentElement;
-      const theme = html.getAttribute("data-theme");
-
-      html.setAttribute(
-        "data-theme",
-        theme === "dark" ? "light" : "dark"
-      );
+  function updateThemeIcon(theme) {
+    themeButtons.forEach(btn => {
+      btn.textContent = theme === "dark" ? "☀️" : "🌙";
     });
   }
-});
 
+  themeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const currentTheme = html.getAttribute("data-theme") === "dark"
+        ? "light"
+        : "dark";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.querySelector(".menu-toggle");
+      html.setAttribute("data-theme", currentTheme);
+      localStorage.setItem("theme", currentTheme);
+      updateThemeIcon(currentTheme);
+    });
+  });
+
+  /* =====================
+     MOBILE SIDEBAR
+     ===================== */
+
+  const menuToggle = document.querySelector(".menu-toggle");
   const sidebar = document.querySelector(".mobile-sidebar");
 
-  if (!toggle || !sidebar) return;
+  if (menuToggle && sidebar) {
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
 
-  toggle.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-  });
-});
+    sidebar.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+      });
+    });
+  }
 
-
-sidebar.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-  });
 });
