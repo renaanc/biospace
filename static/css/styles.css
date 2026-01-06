@@ -499,7 +499,7 @@ main, header, footer, .container {
   width: 100%;
 
   position: relative;
-  z-index: 1200;
+  z-index: 100;
 }
 
 .mobile-actions {
@@ -516,7 +516,7 @@ main, header, footer, .container {
 
   color: inherit;
   user-select: none;
-  z-index: 1300;
+  z-index: 110;
 }
 
 .mobile-sidebar {
@@ -524,9 +524,12 @@ main, header, footer, .container {
   top: 0;
   right: -100%;   /* começa fora da tela à direita */
   left: auto;     /* GARANTE que não use left */
-  width: 75%;
+  width: 70%;
+  max-width: 280px;
   height: 100vh;
-  background: #111;
+  background: #6fa9c4;
+  transition: right 0.3s ease;
+  z-index: 1000;
 
   display: flex;
   flex-direction: column;
