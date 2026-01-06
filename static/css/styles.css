@@ -544,3 +544,9 @@ main, header, footer, .container {
   right: 0;       /* entra pela direita */
 }
 
+/* quando sidebar estiver aberta */
+.sidebar-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+

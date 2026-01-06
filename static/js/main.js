@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   console.log("Biospace carregado com sucesso 🚀");
 
   /* =====================
@@ -7,14 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
   function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== "") {
-      const cookies = document.cookie.split(";");
-      for (let cookie of cookies) {
+      document.cookie.split(";").forEach(cookie => {
         cookie = cookie.trim();
         if (cookie.startsWith(name + "=")) {
           cookieValue = decodeURIComponent(cookie.slice(name.length + 1));
-          break;
         }
-      }
+      });
     }
     return cookieValue;
   }
@@ -36,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then(res => res.json())
         .then(data => {
-          document.getElementById("like-count").innerText = data.likes_count;
+          const count = document.getElementById("like-count");
+          if (count) count.innerText = data.likes_count;
         });
     });
   }
@@ -46,9 +45,9 @@ document.addEventListener("DOMContentLoaded", function () {
      ===================== */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", e => {
-      e.preventDefault();
       const target = document.querySelector(link.getAttribute("href"));
       if (target) {
+        e.preventDefault();
         target.scrollIntoView({ behavior: "smooth" });
       }
     });
@@ -70,16 +69,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const themeButtons = document.querySelectorAll("#theme-toggle");
   const html = document.documentElement;
 
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme) {
-    html.setAttribute("data-theme", savedTheme);
-    updateThemeIcon(savedTheme);
-  }
-
   function updateThemeIcon(theme) {
     themeButtons.forEach(btn => {
       btn.textContent = theme === "dark" ? "☀️" : "🌙";
     });
+  }
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    html.setAttribute("data-theme", savedTheme);
+    updateThemeIcon(savedTheme);
   }
 
   themeButtons.forEach(button => {
@@ -94,22 +93,34 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* =====================
-     MOBILE SIDEBAR ✅
+     MOBILE SIDEBAR
      ===================== */
   const menuToggle = document.querySelector(".menu-toggle");
   const sidebar = document.querySelector(".mobile-sidebar");
 
+  // cria overlay via JS (não precisa HTML)
+  const overlay = document.createElement("div");
+  overlay.classList.add("sidebar-overlay");
+  document.body.appendChild(overlay);
+
   if (menuToggle && sidebar) {
-    menuToggle.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-    });
+    const openSidebar = () => {
+      sidebar.classList.add("active");
+      overlay.classList.add("active");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeSidebar = () => {
+      sidebar.classList.remove("active");
+      overlay.classList.remove("active");
+      document.body.style.overflow = "";
+    };
+
+    menuToggle.addEventListener("click", openSidebar);
+    overlay.addEventListener("click", closeSidebar);
 
     sidebar.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-      });
+      link.addEventListener("click", closeSidebar);
     });
-  } else {
-    console.warn("Sidebar mobile ou botão não encontrados");
   }
 });
