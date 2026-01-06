@@ -519,13 +519,11 @@ main, header, footer, .container {
   z-index: 1300;
 }
 
-/* ===== SIDEBAR ===== */
-
 .mobile-sidebar {
   position: fixed;
   top: 0;
-  right: -100%;
-  left: auto;
+  right: -100%;   /* começa fora da tela à direita */
+  left: auto;     /* GARANTE que não use left */
   width: 75%;
   height: 100vh;
   background: #111;
@@ -540,6 +538,6 @@ main, header, footer, .container {
 }
 
 .mobile-sidebar.active {
-  right: 0;
+  right: 0;       /* entra pela direita */
 }
 

@@ -1,9 +1,7 @@
-{% load static %}
-{% load i18n %}
-
 <div class="mobile-only">
 
-  <div class="mobile-top">
+  <header class="mobile-header">
+
     <!-- LOGO -->
     <a href="/" class="site-logo">
       <img src="{% static 'images/logo-placeholder.png' %}" class="logo-img logo-light">
@@ -11,20 +9,26 @@
     </a>
 
     <!-- AÇÕES -->
-    <div class="mobile-actions">
-      <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <!-- Tema -->
+        <button id="theme-toggle" class="btn btn-light btn-sm">🌙</button>
 
-      <!-- IDIOMA (UM BOTÃO SÓ) -->
-      <form action="{% url 'set_language' %}" method="post" class="language-form">
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{ request.path }}">
+        <!-- Botão de idioma -->
+        <form action="{% url 'set_language' %}" method="post" class="m-0">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
 
-        {% if LANGUAGE_CODE == 'pt-br' %}
-          <button name="language" value="en">🇺🇸</button>
-        {% else %}
-          <button name="language" value="pt-br">🇧🇷</button>
-        {% endif %}
-      </form>
+          {% if request.LANGUAGE_CODE == 'pt-br' or request.LANGUAGE_CODE == 'pt_BR' %}
+            <input type="hidden" name="language" value="en">
+            <button type="submit" title="Switch to English" class="btn btn-outline-secondary btn-sm">
+              <img src="{% static 'flags/united-states-flag-icon.svg' %}" width="28">
+            </button>
+          {% else %}
+            <input type="hidden" name="language" value="pt-br">
+            <button type="submit" title="Mudar para Português" class="btn btn-outline-secondary btn-sm">
+              <img src="{% static 'flags/brazil-flag-icon.svg' %}" width="28">
+            </button>
+          {% endif %}
+        </form>
 
       <!-- MENU -->
       <button class="menu-toggle" aria-label="Abrir menu">☰</button>
@@ -32,7 +36,6 @@
 
   </header>
 
-  <!-- SIDEBAR -->
   <nav class="mobile-sidebar">
     <a href="/">Início</a>
     <a href="/articles/">Artigos</a>
@@ -40,4 +43,4 @@
     <a href="/contact/">Contato</a>
   </nav>
 
-</div> <!-- 🔴 FECHA mobile-only -->
+</div>
