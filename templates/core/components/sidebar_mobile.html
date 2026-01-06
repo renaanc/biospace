@@ -6,6 +6,7 @@
   <header class="mobile-header">
 
 <!-- Logo + título --> 
+<a href="/" class="site-logo">
  <div class="d-flex align-items-center gap-2"> 
   <!-- (Troque a imagem depois) --> 
    <img src="{% static 'images/logo-placeholder.png' %}" alt="Biospace logo" class="logo-img logo-light" height="70" length="90">
@@ -42,8 +43,8 @@
   </header>
 
 <nav class="mobile-sidebar">
-  <a href="{% url 'home' %}">{% trans "Início" %}</a>
-  <a href="{% url 'article_list' %}">{% trans "Artigos" %}</a>
+  <a href="{% url '/' %}">{% trans "Início" %}</a>
+  <a href="{% url 'articles:article_list' %}">{% trans "Artigos" %}</a>
   <a href="{% url 'about' %}">{% trans "Sobre" %}</a>
   <a href="{% url 'contact' %}">{% trans "Contato" %}</a>
 </nav>
