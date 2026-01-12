@@ -14,7 +14,7 @@ def contact(request):
     return render(request, 'core/contact.html')
 
 def simulator(request):
-    return render(request, "simulator.html"),
+    return render(request, "core/simulator.html"),
 
 def astrobiology(request):
 
