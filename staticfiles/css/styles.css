@@ -383,6 +383,28 @@ main, header, footer, .container {
   cursor: pointer;
 }
 
+.simulator-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.simulator-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.simulator-note {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+
 /* ==== Idioma ==== */
 .language-toggle-form {
   display: inline-block;

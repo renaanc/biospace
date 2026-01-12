@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Simulator - Biospace" %}{% endblock %}
+
+{% block content %}
+
+  <h2>{% trans "Planetary Habitability Simulator" %}</h2>
+
+  <p>
+    {% trans "Explore how planetary parameters and atmospheric chemistry influence the potential habitability of a planet." %}
+  </p>
+
+  <section class="simulator-container">
+    <iframe
+      src="https://biospace-planetary-simulator.streamlit.app"
+      loading="lazy"
+      allowfullscreen
+    ></iframe>
+  </section>
+
+  <p class="simulator-note">
+    {% trans "This interactive simulator is a simplified educational model based on current astrobiological knowledge." %}
+  </p>
+
+{% endblock %}
