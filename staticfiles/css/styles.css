@@ -385,11 +385,13 @@ main, header, footer, .container {
 
 .simulator-container {
   width: 100%;
-  height: calc(100vh - 140px); /* ajusta ao header */
+  height: 85vh; /* 👈 use vh direto, não calc */
+  min-height: 700px;
   margin-top: 1.5rem;
   border-radius: 12px;
   overflow: hidden;
 }
+
 
 .simulator-container iframe {
   width: 100%;
@@ -482,6 +484,7 @@ main, header, footer, .container {
   /* evita conteúdo atrás da barra */
   main {
     padding-bottom: 80px;
+    min-height: 100vh;
   }
 }
 
@@ -504,4 +507,10 @@ main, header, footer, .container {
   color: #fff;
   font-size: 0.85rem;
   text-align: center;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
