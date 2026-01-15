@@ -13,8 +13,8 @@ def about(request):
 def contact(request):
     return render(request, 'core/contact.html')
 
-def simulator(request):
-    return render(request, "core/simulator.html")
+###def simulator(request):
+   ### return render(request, "core/simulator.html")
 
 def astrobiology(request):
 

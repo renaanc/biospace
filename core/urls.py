@@ -9,6 +9,6 @@ urlpatterns = [
     path('astrobiology/', views.astrobiology, name='astrobiology'),
     path('extremophiles/', views.extremophiles, name='extremophiles'),
     path('earth-analogs/', views.earth_analogs, name='earth_analogs'),
-    path("simulator/", views.simulator, name="simulator"),
+    ###path("simulator/", views.simulator, name="simulator"),
 ]
 
