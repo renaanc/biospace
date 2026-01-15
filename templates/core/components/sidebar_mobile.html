@@ -47,7 +47,8 @@
   <a href="{% url 'articles:article_list' %}">{% trans "Artigos" %}</a>
   <a href="{% url 'about' %}">{% trans "Sobre" %}</a>
   <a href="{% url 'contact' %}">{% trans "Contato" %}</a>
-  <a href="{% url 'simulator' %}">{% trans "Simulador" %}</a>
+  {% comment %}
+<!--<a href="{% url 'simulator' %}">{% trans "Simulador" %}</a>-->{% endcomment %}
 </nav>
 <div class="sidebar-overlay"></div>
 
