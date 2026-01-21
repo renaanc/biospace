@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True #config('DEBUG', default=False, cast=bool)
+DEBUG = os.getenv("DEBUG", "False") == "True" #config('DEBUG', default=False, cast=bool)
 
 
 ALLOWED_HOSTS = ['biospace-u6a4.onrender.com', 'localhost', '127.0.0.1']
