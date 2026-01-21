@@ -1,6 +1,7 @@
 # Ambiente virtual (ajuste o nome da sua venv se for diferente)
 venv/
 env/
+staticfiles/
 
 # Arquivos de configuração e credenciais
 .env
