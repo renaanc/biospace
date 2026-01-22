@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================
      THEME TOGGLE (GLOBAL)
      ===================== */
-  const themeButtons = document.querySelectorAll("#theme-toggle");
+  const themeButtons = document.querySelectorAll(".theme-toggle");
   const html = document.documentElement;
 
   function updateThemeIcon(theme) {
