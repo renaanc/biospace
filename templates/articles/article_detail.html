@@ -18,7 +18,7 @@
       
 {% if article.author %}
   <p class="article-author">
-    Por {{ article.author.display_name }}
+   {% trans "By" %}  {{ article.author.display_name }}
   </p>
 {% endif %}
      

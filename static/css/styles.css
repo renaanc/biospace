@@ -306,6 +306,14 @@ main, header, footer, .container {
   font-style: italic;
 }
 
+.article-author {
+  margin-top: 0.5rem;      /* desgruda da imagem */
+  margin-bottom: 1rem;    /* separa do conteúdo */
+  font-size: 0.9rem;
+  color: #6c757d;         /* cinza tipo data (Bootstrap) */
+}
+
+
 /* ===== MODO ESCURO ===== */
 [data-theme="dark"] .about-section {
   color: #e4e4e4;
