@@ -1,6 +1,11 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
-from .models import Article
+from .models import Article, Author
+
+
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ("display_name", "user")
 
 @admin.register(Article)
 class ArticleAdmin(TranslatableAdmin):
