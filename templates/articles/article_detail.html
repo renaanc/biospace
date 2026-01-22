@@ -15,6 +15,13 @@
         <p class="text-muted mb-4">
           <strong>{% trans "Published on" %}:</strong> {{ article.created_at|date:"d M Y" }}
         </p>
+      
+{% if article.author %}
+  <p class="article-author">
+    Por {{ article.author.display_name }}
+  </p>
+{% endif %}
+     
         
 {% if article.image %}
   <figure class="mb-4">
