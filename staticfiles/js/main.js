@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================
      THEME TOGGLE (GLOBAL)
      ===================== */
-  const themeButtons = document.querySelectorAll("#theme-toggle");
+  const themeButtons = document.querySelectorAll(".theme-toggle");
   const html = document.documentElement;
 
   function updateThemeIcon(theme) {
@@ -97,14 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
      ===================== */
   const menuToggle = document.querySelector(".menu-toggle");
   const sidebar = document.querySelector(".mobile-sidebar");
+  const overlay = document.querySelector(".sidebar-overlay");
 
-  // cria overlay via JS (não precisa HTML)
-  const overlay = document.createElement("div");
-  overlay.classList.add("sidebar-overlay");
-  document.body.appendChild(overlay);
+  const isMobile = () => window.innerWidth < 768;
 
-  if (menuToggle && sidebar) {
+  if (menuToggle && sidebar && overlay) {
     const openSidebar = () => {
+      if (!isMobile()) return;
+
       sidebar.classList.add("active");
       overlay.classList.add("active");
       document.body.style.overflow = "hidden";
@@ -123,4 +123,5 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", closeSidebar);
     });
   }
+
 });
